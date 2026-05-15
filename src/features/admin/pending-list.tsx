@@ -183,22 +183,8 @@ export function PendingList({
                             label={tProfile("houseArea")}
                             value={p.house_area}
                           />
-                          <Detail
-                            label={
-                              locale === "ur"
-                                ? "فون"
-                                : "Phone"
-                            }
-                            value={p.phone}
-                          />
-                          <Detail
-                            label={
-                              locale === "ur"
-                                ? "ای میل"
-                                : "Email"
-                            }
-                            value={p.email}
-                          />
+                          <Detail label="Phone" value={p.phone} />
+                          <Detail label="Email" value={p.email} />
                           <div className="sm:col-span-2 lg:col-span-3">
                             <Detail
                               label={tProfile("biography")}
