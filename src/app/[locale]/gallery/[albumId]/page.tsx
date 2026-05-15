@@ -19,18 +19,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "metadata" });
   const result = albumId ? await getAlbum(albumId) : null;
   if (!result) return { title: t("galleryTitle") };
-  const title = localized(
-    locale,
-    result.album.title_en,
-    result.album.title_ur,
-  );
+  const title = localized(locale, result.album.title_en);
   return {
     title,
-    description: localized(
-      locale,
-      result.album.description_en,
-      result.album.description_ur,
-    ),
+    description: localized(locale, result.album.description_en),
   };
 }
 
@@ -53,12 +45,8 @@ export default async function AlbumPage({
         <div className="mx-auto max-w-xl">
           <EmptyState
             icon={Images}
-            title={locale === "ur" ? "البم نہیں ملا" : "Album not found"}
-            description={
-              locale === "ur"
-                ? "ہو سکتا ہے یہ البم ہٹا دیا گیا ہو۔"
-                : "This album may have been removed."
-            }
+            title="Album not found"
+            description="This album may have been removed."
             action={
               <Button variant="outline" asChild>
                 <Link href="/gallery">{t("backToGallery")}</Link>
@@ -71,12 +59,8 @@ export default async function AlbumPage({
   }
 
   const { album, photos } = result;
-  const title = localized(locale, album.title_en, album.title_ur);
-  const description = localized(
-    locale,
-    album.description_en,
-    album.description_ur,
-  );
+  const title = localized(locale, album.title_en);
+  const description = localized(locale, album.description_en);
 
   return (
     <div className="container-page">
@@ -122,11 +106,7 @@ export default async function AlbumPage({
         {photos.length === 0 ? (
           <EmptyState
             icon={Images}
-            title={
-              locale === "ur"
-                ? "اس البم میں کوئی تصویر نہیں۔"
-                : "This album has no photos yet."
-            }
+            title="This album has no photos yet."
           />
         ) : (
           <GalleryGrid

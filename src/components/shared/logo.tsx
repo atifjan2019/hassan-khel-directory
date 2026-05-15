@@ -30,10 +30,10 @@ export function Logo({ locale }: { locale: string }) {
       </svg>
       <span className="flex flex-col leading-none">
         <span className="font-display text-lg font-semibold text-forest-700">
-          {locale === "ur" ? VILLAGE.nameUr : VILLAGE.nameEn}
+          {VILLAGE.nameEn}
         </span>
         <span className="text-[11px] tracking-wide text-muted-foreground">
-          {locale === "ur" ? "گاؤں ڈائریکٹری" : "Village Directory"}
+          Village Directory
         </span>
       </span>
     </Link>

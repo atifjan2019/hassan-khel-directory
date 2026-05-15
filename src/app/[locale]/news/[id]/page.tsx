@@ -24,10 +24,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "metadata" });
   const post = id ? await getNewsPost(id) : null;
   if (!post) return { title: t("newsTitle") };
-  const title = localized(locale, post.title_en, post.title_ur);
+  const title = localized(locale, post.title_en);
   return {
     title,
-    description: excerpt(localized(locale, post.body_en, post.body_ur), 155),
+    description: excerpt(localized(locale, post.body_en), 155),
   };
 }
 
@@ -50,16 +50,8 @@ export default async function NewsPostPage({
         <div className="mx-auto max-w-xl">
           <EmptyState
             icon={Newspaper}
-            title={
-              locale === "ur"
-                ? "اعلان نہیں ملا"
-                : "Announcement not found"
-            }
-            description={
-              locale === "ur"
-                ? "ہو سکتا ہے یہ اعلان ہٹا دیا گیا ہو یا منتقل کر دیا گیا ہو۔"
-                : "This announcement may have been removed or moved."
-            }
+            title="Announcement not found"
+            description="This announcement may have been removed or moved."
             action={
               <Button variant="outline" asChild>
                 <Link href="/news">{t("backToNews")}</Link>
@@ -71,9 +63,9 @@ export default async function NewsPostPage({
     );
   }
 
-  const title = localized(locale, post.title_en, post.title_ur);
+  const title = localized(locale, post.title_en);
   const body = bodyToPlainTextWithBreaks(
-    localized(locale, post.body_en, post.body_ur),
+    localized(locale, post.body_en),
   );
   const cover = storageUrl(post.cover_image_url);
   const gregorian = formatDate(post.published_at, locale);
@@ -143,9 +135,7 @@ export default async function NewsPostPage({
           </div>
         ) : (
           <p className="text-sm text-muted-foreground">
-            {locale === "ur"
-              ? "کوئی تفصیل دستیاب نہیں۔"
-              : "No details available."}
+            No details available.
           </p>
         )}
       </article>
@@ -157,7 +147,7 @@ export default async function NewsPostPage({
             <SectionHeading title={t("related")} />
             <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {related.map((p) => {
-                const rTitle = localized(locale, p.title_en, p.title_ur);
+                const rTitle = localized(locale, p.title_en);
                 const rCover = storageUrl(p.cover_image_url);
                 return (
                   <li key={p.id}>

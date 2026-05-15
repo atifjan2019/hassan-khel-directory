@@ -17,7 +17,7 @@ export async function ProfileCard({
   const t = await getTranslations("directory");
   const tp = await getTranslations(`options.profession`);
   const name = displayName(locale, profile);
-  const father = localized(locale, profile.father_name_en, profile.father_name_ur);
+  const father = localized(locale, profile.father_name_en);
 
   return (
     <Card className="group h-full overflow-hidden transition-transform duration-200 hover:-translate-y-0.5">

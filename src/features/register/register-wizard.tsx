@@ -39,11 +39,8 @@ const STEP_FIELDS: FieldPath<RegisterFormValues>[][] = [
   [
     "honorific",
     "full_name_en",
-    "full_name_ur",
     "father_name_en",
-    "father_name_ur",
     "grandfather_name_en",
-    "grandfather_name_ur",
     "date_of_birth",
   ],
   [
@@ -342,17 +339,9 @@ export function RegisterWizard({ locale }: { locale: string }) {
                   </p>
                 )}
               </div>
-              <div>
-                <Label htmlFor="full_name_ur">{t("fullNameUr")}</Label>
-                <Input
-                  id="full_name_ur"
-                  dir="rtl"
-                  {...register("full_name_ur")}
-                />
-              </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div>
               <div>
                 <Label htmlFor="father_name_en" required>
                   {t("fatherNameEn")}
@@ -369,37 +358,17 @@ export function RegisterWizard({ locale }: { locale: string }) {
                   </p>
                 )}
               </div>
-              <div>
-                <Label htmlFor="father_name_ur">{t("fatherNameUr")}</Label>
-                <Input
-                  id="father_name_ur"
-                  dir="rtl"
-                  {...register("father_name_ur")}
-                />
-              </div>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <Label htmlFor="grandfather_name_en">
-                  {t("grandfatherNameEn")}
-                </Label>
-                <Input
-                  id="grandfather_name_en"
-                  dir="ltr"
-                  {...register("grandfather_name_en")}
-                />
-              </div>
-              <div>
-                <Label htmlFor="grandfather_name_ur">
-                  {t("grandfatherNameUr")}
-                </Label>
-                <Input
-                  id="grandfather_name_ur"
-                  dir="rtl"
-                  {...register("grandfather_name_ur")}
-                />
-              </div>
+            <div>
+              <Label htmlFor="grandfather_name_en">
+                {t("grandfatherNameEn")}
+              </Label>
+              <Input
+                id="grandfather_name_en"
+                dir="ltr"
+                {...register("grandfather_name_en")}
+              />
             </div>
 
             <div>
@@ -735,11 +704,8 @@ function ReviewSummary({
     t("fullNameEn"),
     [honorificLabel, values.full_name_en].filter(Boolean).join(" "),
   );
-  push(t("fullNameUr"), values.full_name_ur);
   push(t("fatherNameEn"), values.father_name_en);
-  push(t("fatherNameUr"), values.father_name_ur);
   push(t("grandfatherNameEn"), values.grandfather_name_en);
-  push(t("grandfatherNameUr"), values.grandfather_name_ur);
   push(t("dateOfBirth"), values.date_of_birth);
   push(
     t("profession"),

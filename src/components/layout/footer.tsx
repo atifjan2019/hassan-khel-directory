@@ -15,10 +15,10 @@ export async function Footer({ locale }: { locale: string }) {
       <div className="container mx-auto grid gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <h3 className="font-display text-2xl text-cream-50">
-            {locale === "ur" ? VILLAGE.nameUr : VILLAGE.nameEn}
+            {VILLAGE.nameEn}
           </h3>
           <p className="mt-1 text-sm text-cream-200/80">
-            {locale === "ur" ? VILLAGE.districtUr : VILLAGE.districtEn}
+            {VILLAGE.districtEn}
           </p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream-200/70">
             {t("tagline")}
@@ -46,7 +46,7 @@ export async function Footer({ locale }: { locale: string }) {
         <div>
           <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gold-400">
             <ShieldCheck className="size-4" />
-            {locale === "ur" ? "رازداری" : "Privacy"}
+            Privacy
           </h4>
           <p className="text-sm leading-relaxed text-cream-200/70">
             {t("privacyNote")}

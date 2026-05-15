@@ -15,26 +15,23 @@ export function dir(locale: string): "rtl" | "ltr" {
   return isRtl(locale) ? "rtl" : "ltr";
 }
 
-/** Pick the localized field, gracefully falling back to the other script. */
+/** Trimmed text (English-only app). `locale` kept for call-site compat. */
 export function localized(
-  locale: string,
+  _locale: string,
   en: string | null | undefined,
-  ur: string | null | undefined,
 ): string {
-  if (locale === "ur") return (ur || en || "").trim();
-  return (en || ur || "").trim();
+  return (en ?? "").trim();
 }
 
-/** Full display name with optional honorific, in the active locale. */
+/** Full display name with optional honorific. */
 export function displayName(
-  locale: string,
+  _locale: string,
   p: {
     honorific?: string | null;
     full_name_en: string;
-    full_name_ur?: string | null;
   },
 ): string {
-  const base = localized(locale, p.full_name_en, p.full_name_ur);
+  const base = (p.full_name_en ?? "").trim();
   return p.honorific ? `${p.honorific} ${base}`.trim() : base;
 }
 
@@ -44,16 +41,10 @@ const GREGORIAN = new Intl.DateTimeFormat("en-GB", {
   year: "numeric",
 });
 
-const GREGORIAN_UR = new Intl.DateTimeFormat("ur-PK", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
-export function formatDate(date: string | Date, locale: string): string {
+export function formatDate(date: string | Date, _locale?: string): string {
   const d = typeof date === "string" ? new Date(date) : date;
   if (Number.isNaN(d.getTime())) return "";
-  return (locale === "ur" ? GREGORIAN_UR : GREGORIAN).format(d);
+  return GREGORIAN.format(d);
 }
 
 /** Slugify for accessible anchors / share URLs. */

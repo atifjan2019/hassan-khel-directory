@@ -51,7 +51,6 @@ export function MembersTable({
     return profiles.filter((p) =>
       [
         p.full_name_en,
-        p.full_name_ur,
         p.father_name_en,
         p.current_city,
         p.profession,
@@ -127,18 +126,14 @@ export function MembersTable({
         <table className="w-full text-sm">
           <thead className="bg-muted/50 text-start">
             <tr>
-              <th className="px-4 py-3 text-start font-medium">
-                {locale === "ur" ? "نام" : "Name"}
-              </th>
+              <th className="px-4 py-3 text-start font-medium">Name</th>
               <th className="px-4 py-3 text-start font-medium">
                 {t("status")}
               </th>
               <th className="px-4 py-3 text-start font-medium">
-                {locale === "ur" ? "پیشہ" : "Profession"}
+                Profession
               </th>
-              <th className="px-4 py-3 text-start font-medium">
-                {locale === "ur" ? "شہر" : "City"}
-              </th>
+              <th className="px-4 py-3 text-start font-medium">City</th>
               <th className="px-4 py-3 text-end font-medium">
                 {t("actions")}
               </th>

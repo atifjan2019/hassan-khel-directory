@@ -41,11 +41,7 @@ export default async function GalleryPage({
         ) : (
           <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
             {albums.map((album) => {
-              const title = localized(
-                locale,
-                album.title_en,
-                album.title_ur,
-              );
+              const title = localized(locale, album.title_en);
               const cover = storageUrl(album.cover_image_url);
               return (
                 <li key={album.id}>

@@ -73,18 +73,9 @@ export default async function ProfileDetailPage({
   }
 
   const name = displayName(locale, profile);
-  const fatherName = localized(
-    locale,
-    profile.father_name_en,
-    profile.father_name_ur,
-  );
-  const grandfatherName = localized(
-    locale,
-    profile.grandfather_name_en,
-    profile.grandfather_name_ur,
-  );
-  const fullNameUr = profile.full_name_ur?.trim();
-  const bio = localized(locale, profile.bio_en, profile.bio_ur);
+  const fatherName = localized(locale, profile.father_name_en);
+  const grandfatherName = localized(locale, profile.grandfather_name_en);
+  const bio = localized(locale, profile.bio_en);
   const qualification = profile.qualification?.trim();
   const institute = profile.institute?.trim();
 
@@ -177,11 +168,6 @@ export default async function ProfileDetailPage({
               <h1 className="font-display text-2xl leading-tight text-forest-700">
                 {name}
               </h1>
-              {fullNameUr && locale !== "ur" && (
-                <p className="mt-1 text-base text-muted-foreground">
-                  {fullNameUr}
-                </p>
-              )}
               <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
                 <Badge>{tProf(profile.profession as never)}</Badge>
                 {profile.is_deceased && <MarhoomBadge />}
@@ -246,9 +232,7 @@ export default async function ProfileDetailPage({
                 </p>
               ) : (
                 <p className="text-sm text-muted-foreground">
-                  {locale === "ur"
-                    ? "ابھی کوئی تعارف دستیاب نہیں۔"
-                    : "No biography available yet."}
+                  No biography available yet.
                 </p>
               )}
             </CardContent>
@@ -285,8 +269,7 @@ export default async function ProfileDetailPage({
                   </Link>
                 ) : (
                   <p className="text-sm text-muted-foreground">
-                    {fatherName ||
-                      (locale === "ur" ? "نامعلوم" : "Unknown")}
+                    {fatherName || "Unknown"}
                   </p>
                 )}
               </div>
@@ -318,9 +301,7 @@ export default async function ProfileDetailPage({
                   </ul>
                 ) : (
                   <p className="text-sm text-muted-foreground">
-                    {locale === "ur"
-                      ? "کوئی درج شدہ اولاد نہیں۔"
-                      : "No registered children."}
+                    No registered children.
                   </p>
                 )}
               </div>

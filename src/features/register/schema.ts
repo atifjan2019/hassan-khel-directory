@@ -27,16 +27,13 @@ export const registerSchema = z.object({
     .string()
     .trim()
     .min(2, { message: "validationName" }),
-  full_name_ur: optionalText,
 
   father_name_en: z
     .string()
     .trim()
     .min(2, { message: "validationFather" }),
-  father_name_ur: optionalText,
 
   grandfather_name_en: optionalText,
-  grandfather_name_ur: optionalText,
 
   date_of_birth: optionalText,
 
@@ -58,7 +55,6 @@ export const registerSchema = z.object({
     .or(z.literal("").transform(() => undefined)),
 
   bio_en: optionalText,
-  bio_ur: optionalText,
 
   phone: optionalText,
   email: z

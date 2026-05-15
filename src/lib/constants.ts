@@ -93,9 +93,7 @@ export const RTL_LOCALES: Locale[] = [];
 
 export const VILLAGE = {
   nameEn: "Hassan Khel",
-  nameUr: "حسن خیل",
   districtEn: "Charsadda, Khyber Pakhtunkhwa, Pakistan",
-  districtUr: "چارسدہ، خیبر پختونخوا، پاکستان",
   lat: Number(process.env.NEXT_PUBLIC_VILLAGE_LAT ?? 34.1453),
   lng: Number(process.env.NEXT_PUBLIC_VILLAGE_LNG ?? 71.7308),
   zoom: Number(process.env.NEXT_PUBLIC_VILLAGE_ZOOM ?? 15),

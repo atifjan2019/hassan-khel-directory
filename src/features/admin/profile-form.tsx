@@ -120,16 +120,6 @@ export function ProfileForm({
             dir="ltr"
           />
         </div>
-        <div>
-          <Label htmlFor="full_name_ur">{t("fullNameUr")}</Label>
-          <Input
-            id="full_name_ur"
-            name="full_name_ur"
-            defaultValue={profile.full_name_ur ?? ""}
-            dir="rtl"
-            className="font-nastaliq"
-          />
-        </div>
 
         <div>
           <Label htmlFor="father_name_en" required>
@@ -143,16 +133,6 @@ export function ProfileForm({
             dir="ltr"
           />
         </div>
-        <div>
-          <Label htmlFor="father_name_ur">{t("fatherNameUr")}</Label>
-          <Input
-            id="father_name_ur"
-            name="father_name_ur"
-            defaultValue={profile.father_name_ur ?? ""}
-            dir="rtl"
-            className="font-nastaliq"
-          />
-        </div>
 
         <div>
           <Label htmlFor="grandfather_name_en">
@@ -163,18 +143,6 @@ export function ProfileForm({
             name="grandfather_name_en"
             defaultValue={profile.grandfather_name_en ?? ""}
             dir="ltr"
-          />
-        </div>
-        <div>
-          <Label htmlFor="grandfather_name_ur">
-            {t("grandfatherNameUr")}
-          </Label>
-          <Input
-            id="grandfather_name_ur"
-            name="grandfather_name_ur"
-            defaultValue={profile.grandfather_name_ur ?? ""}
-            dir="rtl"
-            className="font-nastaliq"
           />
         </div>
 
@@ -316,17 +284,6 @@ export function ProfileForm({
             defaultValue={profile.bio_en ?? ""}
             rows={4}
             dir="ltr"
-          />
-        </div>
-        <div>
-          <Label htmlFor="bio_ur">{t("bioUr")}</Label>
-          <Textarea
-            id="bio_ur"
-            name="bio_ur"
-            defaultValue={profile.bio_ur ?? ""}
-            rows={4}
-            dir="rtl"
-            className="font-nastaliq"
           />
         </div>
       </div>

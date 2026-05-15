@@ -11,11 +11,8 @@ export type ProfileRow = {
   user_id: string | null;
   honorific: string | null;
   full_name_en: string;
-  full_name_ur: string | null;
   father_name_en: string;
-  father_name_ur: string | null;
   grandfather_name_en: string | null;
-  grandfather_name_ur: string | null;
   date_of_birth: string | null;
   profession: string;
   qualification: string | null;
@@ -26,7 +23,6 @@ export type ProfileRow = {
   email: string | null;
   house_area: string | null;
   bio_en: string | null;
-  bio_ur: string | null;
   photo_url: string | null;
   hide_photo: boolean;
   father_profile_id: string | null;
@@ -56,9 +52,7 @@ export type PublicProfile = Omit<
 export type NewsRow = {
   id: string;
   title_en: string;
-  title_ur: string | null;
   body_en: string;
-  body_ur: string | null;
   cover_image_url: string | null;
   category: string;
   is_pinned: boolean;
@@ -71,11 +65,9 @@ export type NewsRow = {
 export type AlbumRow = {
   id: string;
   title_en: string;
-  title_ur: string | null;
   event_date: string;
   cover_image_url: string | null;
   description_en: string | null;
-  description_ur: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -85,7 +77,6 @@ export type AlbumPhotoRow = {
   album_id: string;
   image_url: string;
   caption_en: string | null;
-  caption_ur: string | null;
   display_order: number;
   created_at: string;
 }
@@ -185,7 +176,6 @@ export type Database = {
         Returns: {
           id: string;
           full_name_en: string;
-          full_name_ur: string | null;
           honorific: string | null;
           profession: string;
           photo_url: string | null;

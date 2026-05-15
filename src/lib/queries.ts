@@ -33,7 +33,7 @@ export async function getDirectory(filters: DirectoryFilters) {
 
   if (filters.q?.trim()) {
     const q = filters.q.trim().replace(/[%,]/g, "");
-    query = query.or(`full_name_en.ilike.%${q}%,full_name_ur.ilike.%${q}%`);
+    query = query.ilike("full_name_en", `%${q}%`);
   }
   if (filters.profession) query = query.eq("profession", filters.profession);
   if (filters.city) query = query.eq("current_city", filters.city);

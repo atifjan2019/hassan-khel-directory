@@ -27,7 +27,6 @@ export default async function AboutPage({
   setRequestLocale(locale);
 
   const t = await getTranslations("about");
-  const isUr = locale === "ur";
 
   const sections = [
     { title: t("historyTitle"), body: t("historyBody") },
@@ -40,16 +39,13 @@ export default async function AboutPage({
       <div className="mx-auto max-w-3xl">
         <SectionHeading title={t("title")} centered />
 
-        {/* Bilingual village identity */}
+        {/* Village identity */}
         <div className="mt-8 text-center">
-          <p className="font-nastaliq text-3xl leading-[1.6] text-forest-700 sm:text-4xl">
-            {VILLAGE.nameUr}
-          </p>
           <p className="mt-1 font-display text-2xl font-semibold text-forest-700 sm:text-3xl">
             {VILLAGE.nameEn}
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            {isUr ? VILLAGE.districtUr : VILLAGE.districtEn}
+            {VILLAGE.districtEn}
           </p>
         </div>
 
@@ -82,14 +78,10 @@ export default async function AboutPage({
           </div>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild variant="secondary">
-              <Link href="/register">
-                {isUr ? "اندراج کریں" : "Register a member"}
-              </Link>
+              <Link href="/register">Register a member</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link href="/login">
-                {isUr ? "منتظمین لاگ ان" : "Admin log in"}
-              </Link>
+              <Link href="/login">Admin log in</Link>
             </Button>
           </div>
         </section>
