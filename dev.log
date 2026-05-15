@@ -833,3 +833,40 @@ All exports of the module are statically known (It doesn't have dynamic exports)
   digest: '896975079'
 }
  GET /en/family-tree 500 in 1900ms (next.js: 756ms, proxy.ts: 180ms, generate-params: 616ms, application-code: 963ms)
+✓ Compiled in 126ms
+⨯ ReferenceError: fontNastaliq is not defined
+    at LocaleLayout (src\app\[locale]\layout.tsx:67:66)
+  65 |       lang={locale}
+  66 |       dir={dir(locale)}
+> 67 |       className={`${fontDisplay.variable} ${fontSans.variable} ${fontNastaliq.variable}`}
+     |                                                                  ^
+  68 |       suppressHydrationWarning
+  69 |     >
+  70 |       <body className="flex min-h-dvh flex-col" suppressHydrationWarning> {
+  digest: '464344934'
+}
+ GET /en/family-tree 500 in 1333ms (next.js: 277ms, proxy.ts: 103ms, generate-params: 9ms, application-code: 953ms)
+✓ Compiled in 133ms
+ GET /en/family-tree 200 in 1484ms (next.js: 210ms, proxy.ts: 182ms, generate-params: 10ms, application-code: 1092ms)
+✓ Compiled in 97ms
+ GET /en/family-tree 200 in 1177ms (next.js: 149ms, proxy.ts: 95ms, generate-params: 9ms, application-code: 932ms)
+ GET /en/family-tree 200 in 757ms (next.js: 7ms, proxy.ts: 10ms, generate-params: 22µs, application-code: 740ms)
+ GET /en/family-tree 200 in 758ms (next.js: 78ms, proxy.ts: 20ms, generate-params: 20µs, application-code: 660ms)
+ GET /en/family-tree 200 in 761ms (next.js: 28ms, proxy.ts: 19ms, generate-params: 19µs, application-code: 714ms)
+ GET /en/family-tree 200 in 855ms (next.js: 217ms, proxy.ts: 21ms, generate-params: 36µs, application-code: 617ms)
+ GET /en/family-tree 200 in 855ms (next.js: 455ms, proxy.ts: 24ms, generate-params: 28µs, application-code: 376ms)
+ GET /en/family-tree 200 in 732ms (next.js: 10ms, proxy.ts: 9ms, generate-params: 34µs, application-code: 712ms)
+ GET /en/family-tree 200 in 670ms (next.js: 21ms, proxy.ts: 23ms, generate-params: 7ms, application-code: 626ms)
+ GET /en/family-tree 200 in 627ms (next.js: 99ms, proxy.ts: 33ms, generate-params: 33µs, application-code: 495ms)
+ GET /en/family-tree 200 in 631ms (next.js: 43ms, proxy.ts: 31ms, generate-params: 34µs, application-code: 557ms)
+ GET /en/family-tree 200 in 695ms (next.js: 196ms, proxy.ts: 26ms, generate-params: 22µs, application-code: 472ms)
+ GET /en/family-tree 200 in 701ms (next.js: 276ms, proxy.ts: 27ms, generate-params: 33µs, application-code: 397ms)
+ GET /en/family-tree 200 in 226ms (next.js: 11ms, proxy.ts: 11ms, generate-params: 27µs, application-code: 203ms)
+ GET /en/family-tree 200 in 126ms (next.js: 13ms, proxy.ts: 17ms, generate-params: 41µs, application-code: 96ms)
+ GET /en 200 in 1065ms (next.js: 175ms, proxy.ts: 9ms, generate-params: 10ms, application-code: 881ms)
+ GET /en 200 in 553ms (next.js: 130ms, proxy.ts: 103ms, generate-params: 7ms, application-code: 320ms)
+ GET /en 200 in 867ms (next.js: 14ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 847ms)
+✓ Compiled in 18ms
+ GET /en 200 in 778ms (next.js: 136ms, proxy.ts: 93ms, generate-params: 7ms, application-code: 550ms)
+ GET /en 200 in 381ms (next.js: 12ms, proxy.ts: 65ms, generate-params: 41µs, application-code: 303ms)
+ GET /en/login 200 in 248ms (next.js: 162ms, proxy.ts: 10ms, generate-params: 6ms, application-code: 76ms)

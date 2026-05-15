@@ -73,7 +73,7 @@ export default async function LocaleLayout({
             href="#main"
             className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
           >
-            {locale === "ur" ? "مرکزی مواد پر جائیں" : "Skip to content"}
+            Skip to content
           </a>
           <Header locale={locale} />
           <main id="main" className="flex-1">
