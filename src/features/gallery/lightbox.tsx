@@ -47,7 +47,7 @@ export function GalleryGrid({
           return {
             id: p.id,
             url,
-            caption: localized(locale, p.caption_en, p.caption_ur),
+            caption: localized(locale, p.caption_en),
           };
         })
         .filter((p): p is LightboxPhoto => p !== null),

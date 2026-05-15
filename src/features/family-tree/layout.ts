@@ -19,7 +19,6 @@ import { displayName } from "@/lib/utils";
 export interface FamilyTreeRow {
   id: string;
   full_name_en: string;
-  full_name_ur: string | null;
   honorific: string | null;
   profession: string;
   photo_url: string | null;
@@ -31,7 +30,6 @@ export interface FamilyTreeRow {
 /** Data carried by every React Flow "person" node. */
 export interface PersonNodeData extends Record<string, unknown> {
   fullNameEn: string;
-  fullNameUr: string | null;
   honorific: string | null;
   profession: string;
   photoUrl: string | null;
@@ -179,11 +177,9 @@ export function buildTree(
     const label = displayName(locale, {
       honorific: r.honorific,
       full_name_en: r.full_name_en,
-      full_name_ur: r.full_name_ur,
     });
     const search = [
       r.full_name_en,
-      r.full_name_ur ?? "",
       r.honorific ?? "",
       label,
     ]
@@ -199,7 +195,6 @@ export function buildTree(
       selectable: true,
       data: {
         fullNameEn: r.full_name_en,
-        fullNameUr: r.full_name_ur,
         honorific: r.honorific,
         profession: r.profession,
         photoUrl: r.photo_url,

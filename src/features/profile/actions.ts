@@ -77,7 +77,6 @@ export async function updateOwnProfile(
 
   const update: Partial<ProfileRow> = {
     full_name_en: str(fd, "full_name_en") ?? "",
-    full_name_ur: str(fd, "full_name_ur"),
     date_of_birth: str(fd, "date_of_birth"),
     profession: str(fd, "profession") ?? "other",
     qualification: str(fd, "qualification"),
@@ -86,7 +85,6 @@ export async function updateOwnProfile(
     current_city: str(fd, "current_city"),
     house_area: str(fd, "house_area"),
     bio_en: str(fd, "bio_en"),
-    bio_ur: str(fd, "bio_ur"),
     phone: str(fd, "phone"),
     email: str(fd, "email"),
     hide_photo: bool(fd, "hide_photo"),

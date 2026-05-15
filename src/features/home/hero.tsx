@@ -25,7 +25,6 @@ function GeoMotif({ className }: { className?: string }) {
 
 export async function HomeHero({ locale }: { locale: string }) {
   const t = await getTranslations("home");
-  const isUr = locale === "ur";
 
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-b from-cream-50 via-cream-100 to-background">
@@ -48,9 +47,6 @@ export async function HomeHero({ locale }: { locale: string }) {
         </p>
 
         <h1 className="mt-5 flex flex-col items-center gap-2">
-          <span className="font-nastaliq text-5xl leading-[1.5] text-forest-700 sm:text-7xl">
-            {VILLAGE.nameUr}
-          </span>
           <span className="font-display text-4xl font-semibold tracking-tight text-forest-700 sm:text-6xl">
             {VILLAGE.nameEn}
           </span>
@@ -61,7 +57,7 @@ export async function HomeHero({ locale }: { locale: string }) {
         </div>
 
         <p className="mt-5 text-base text-charcoal-muted sm:text-lg">
-          {isUr ? VILLAGE.districtUr : VILLAGE.districtEn}
+          {VILLAGE.districtEn}
         </p>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-charcoal/80 sm:text-lg">
           {t("heroSubtitle")}

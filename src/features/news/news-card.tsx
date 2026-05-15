@@ -23,8 +23,8 @@ export function NewsCard({
   postedOnLabel: string;
   hijriLabel: string;
 }) {
-  const title = localized(locale, post.title_en, post.title_ur);
-  const summary = excerpt(localized(locale, post.body_en, post.body_ur), 160);
+  const title = localized(locale, post.title_en);
+  const summary = excerpt(localized(locale, post.body_en), 160);
   const cover = storageUrl(post.cover_image_url);
   const gregorian = formatDate(post.published_at, locale);
   const hijri = formatHijri(post.published_at, locale);

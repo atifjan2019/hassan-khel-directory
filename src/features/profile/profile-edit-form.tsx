@@ -230,17 +230,6 @@ export function ProfileEditForm({
             dir="ltr"
           />
         </div>
-        <div>
-          <Label htmlFor="bio_ur">{t("bioUr")}</Label>
-          <Textarea
-            id="bio_ur"
-            name="bio_ur"
-            rows={4}
-            defaultValue={profile.bio_ur ?? ""}
-            dir="rtl"
-            className="font-nastaliq"
-          />
-        </div>
       </div>
 
       <div>

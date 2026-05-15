@@ -188,11 +188,7 @@ export function PendingList({
                           <div className="sm:col-span-2 lg:col-span-3">
                             <Detail
                               label={tProfile("biography")}
-                              value={localized(
-                                locale,
-                                p.bio_en,
-                                p.bio_ur,
-                              )}
+                              value={localized(locale, p.bio_en)}
                             />
                           </div>
                         </dl>
