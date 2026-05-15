@@ -212,7 +212,7 @@ export function DirectoryFilters({
             <option value="">{allLabel}</option>
             {houseAreas.length === 0 && (
               <option value="" disabled>
-                {locale === "ur" ? "کوئی نہیں" : "None yet"}
+                None yet
               </option>
             )}
             {houseAreas.map((h) => (

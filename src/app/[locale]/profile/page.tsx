@@ -67,7 +67,7 @@ export default async function ProfilePage({
           action={
             <Button asChild>
               <Link href="/register">
-                {locale === "ur" ? "رجسٹر کریں" : "Register"}
+                Register
               </Link>
             </Button>
           }

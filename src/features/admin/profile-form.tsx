@@ -32,7 +32,6 @@ export function ProfileForm({
   backHref?: string;
   locale: string;
 }) {
-  const ur = locale === "ur";
   const t = useTranslations("register");
   const tCommon = useTranslations("common");
   const tStatus = useTranslations("options.status");
@@ -248,7 +247,7 @@ export function ProfileForm({
         <div className="grid grid-cols-2 gap-4">
           <div>
             <Label htmlFor="latitude">
-              {ur ? "عرض البلد" : "Latitude"}
+              Latitude
             </Label>
             <Input
               id="latitude"
@@ -261,7 +260,7 @@ export function ProfileForm({
           </div>
           <div>
             <Label htmlFor="longitude">
-              {ur ? "طول البلد" : "Longitude"}
+              Longitude
             </Label>
             <Input
               id="longitude"
@@ -311,11 +310,7 @@ export function ProfileForm({
           name="is_deceased"
           value="true"
           defaultChecked={profile.is_deceased}
-          label={
-            ur
-              ? "مرحوم کے طور پر نشان زد کریں"
-              : "Mark as marhoom (deceased)"
-          }
+          label="Mark as marhoom (deceased)"
         />
       </div>
 

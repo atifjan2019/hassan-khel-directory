@@ -45,7 +45,7 @@
     "logout": "Log out",
     "myProfile": "My Profile",
     "admin": "Admin",
-    "language": "اردو",
+    "language": "English",
     "menu": "Menu"
   },
   "home": {
@@ -69,7 +69,7 @@
   "directory": {
     "title": "Village Directory",
     "subtitle": "{count, plural, =0 {No members yet} one {# approved member} other {# approved members}}",
-    "searchPlaceholder": "Search by name (English or اردو)…",
+    "searchPlaceholder": "Search by name…",
     "filterProfession": "Profession",
     "filterCity": "Current city",
     "filterHouseArea": "House area in village",
@@ -100,7 +100,7 @@
     "notFound": "Profile not found",
     "notFoundBody": "This profile may be pending approval or no longer available.",
     "marhoom": "Marhoom",
-    "marhoomTooltip": "May Allah grant them Jannah — اِنّا لِلّٰه وَاِنّا اِلَیہِ رَاجِعون"
+    "marhoomTooltip": "May Allah grant them Jannah — Inna lillahi wa inna ilayhi raji'un"
   },
   "register": {
     "title": "Register a village member",

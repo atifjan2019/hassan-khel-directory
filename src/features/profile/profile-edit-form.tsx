@@ -28,7 +28,6 @@ export function ProfileEditForm({
   const tProf = useTranslations("options.profession");
   const tQual = useTranslations("options.qualification");
   const router = useRouter();
-  const ur = locale === "ur";
 
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
@@ -192,7 +191,7 @@ export function ProfileEditForm({
         <div className="grid grid-cols-2 gap-4">
           <div>
             <Label htmlFor="latitude">
-              {ur ? "عرض البلد" : "Latitude"}
+              Latitude
             </Label>
             <Input
               id="latitude"
@@ -205,7 +204,7 @@ export function ProfileEditForm({
           </div>
           <div>
             <Label htmlFor="longitude">
-              {ur ? "طول البلد" : "Longitude"}
+              Longitude
             </Label>
             <Input
               id="longitude"

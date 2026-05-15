@@ -38,7 +38,6 @@ export async function notifyAdminNewRegistration(profile: {
 
   const text = [
     "New registration pending approval",
-    "نئی رجسٹریشن منظوری کے لیے زیرِ التوا ہے",
     "",
     ...lines,
     "",
@@ -47,8 +46,7 @@ export async function notifyAdminNewRegistration(profile: {
 
   const html = `
     <div style="font-family:system-ui,Segoe UI,sans-serif;color:#2b2b2b;line-height:1.6">
-      <h2 style="margin:0 0 4px">New registration pending approval</h2>
-      <p style="margin:0 0 16px;color:#6b6b6b">نئی رجسٹریشن منظوری کے لیے زیرِ التوا ہے</p>
+      <h2 style="margin:0 0 16px">New registration pending approval</h2>
       <ul style="padding-inline-start:18px;margin:0 0 16px">
         ${lines.map((l) => `<li>${escapeHtml(l)}</li>`).join("")}
       </ul>

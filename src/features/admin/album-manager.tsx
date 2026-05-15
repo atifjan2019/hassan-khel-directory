@@ -413,7 +413,7 @@ export function AlbumManager({ albums, selected, locale }: Props) {
 
       {albums.length === 0 ? (
         <p className="text-sm text-muted-foreground">
-          {locale === "ur" ? "ابھی کوئی البم نہیں۔" : "No albums yet."}
+          No albums yet.
         </p>
       ) : (
         <ul className="grid gap-3 sm:grid-cols-2">

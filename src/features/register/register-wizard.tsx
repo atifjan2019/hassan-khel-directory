@@ -134,19 +134,11 @@ export function RegisterWizard({ locale }: { locale: string }) {
       return;
     }
     if (!file.type.startsWith("image/")) {
-      setPhotoError(
-        locale === "ur"
-          ? "براہِ کرم ایک تصویر منتخب کریں"
-          : "Please choose an image file",
-      );
+      setPhotoError("Please choose an image file");
       return;
     }
     if (file.size > MAX_PHOTO_BYTES) {
-      setPhotoError(
-        locale === "ur"
-          ? "تصویر 5 میگابائٹ سے کم ہونی چاہیے"
-          : "Image must be under 5 MB",
-      );
+      setPhotoError("Image must be under 5 MB");
       return;
     }
     setPhotoFile(file);
@@ -179,11 +171,7 @@ export function RegisterWizard({ locale }: { locale: string }) {
       } catch (err) {
         setSubmitting(false);
         setServerError(
-          err instanceof Error
-            ? err.message
-            : locale === "ur"
-              ? "تصویر اپ لوڈ نہیں ہو سکی"
-              : "Photo upload failed",
+          err instanceof Error ? err.message : "Photo upload failed",
         );
         return;
       }
@@ -244,7 +232,7 @@ export function RegisterWizard({ locale }: { locale: string }) {
           </Button>
           <Button asChild>
             <Link href="/directory">
-              {locale === "ur" ? "ڈائریکٹری دیکھیں" : "Go to the directory"}
+              Go to the directory
             </Link>
           </Button>
         </div>
@@ -406,9 +394,7 @@ export function RegisterWizard({ locale }: { locale: string }) {
               </Select>
               {fieldError("profession") && (
                 <p className="mt-1 text-xs text-destructive" role="alert">
-                  {locale === "ur"
-                    ? "براہِ کرم پیشہ منتخب کریں"
-                    : "Please select a profession"}
+                  Please select a profession
                 </p>
               )}
             </div>
@@ -524,9 +510,7 @@ export function RegisterWizard({ locale }: { locale: string }) {
               </p>
               {errors.email && (
                 <p className="mt-1 text-xs text-destructive" role="alert">
-                  {locale === "ur"
-                    ? "درست ای میل درج کریں"
-                    : "Enter a valid email"}
+                  Enter a valid email
                 </p>
               )}
             </div>
@@ -723,11 +707,7 @@ function ReviewSummary({
   push(t("houseArea"), values.house_area);
   push(
     t("linkFather"),
-    values.father_profile_id
-      ? locale === "ur"
-        ? "منسلک"
-        : "Linked"
-      : t("linkFatherNone"),
+    values.father_profile_id ? "Linked" : t("linkFatherNone"),
   );
   push(
     t("dropPin"),
@@ -740,13 +720,7 @@ function ReviewSummary({
   push(t("email"), values.email);
   push(
     t("photo"),
-    hasPhoto
-      ? locale === "ur"
-        ? "منتخب"
-        : "Selected"
-      : locale === "ur"
-        ? "کوئی نہیں"
-        : "None",
+    hasPhoto ? "Selected" : "None",
   );
 
   return (

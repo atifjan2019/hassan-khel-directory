@@ -65,7 +65,7 @@ export function LocationPicker({
             className="flex h-64 w-full flex-col items-center justify-center gap-2 bg-cream-100 text-sm font-medium text-primary transition-colors hover:bg-cream-200"
           >
             <MapPin className="size-6" aria-hidden />
-            {locale === "ur" ? "نقشہ کھولیں" : "Open the map"}
+            Open the map
           </button>
         ) : (
           <LeafletMap
@@ -84,7 +84,7 @@ export function LocationPicker({
           </p>
         ) : (
           <span className="text-sm text-muted-foreground">
-            {locale === "ur" ? "ابھی کوئی پن نہیں" : "No pin yet"}
+            No pin yet
           </span>
         )}
 
@@ -95,7 +95,7 @@ export function LocationPicker({
             className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-muted-foreground hover:bg-primary/10 hover:text-foreground"
           >
             <X className="size-3.5" aria-hidden />
-            {locale === "ur" ? "پن ہٹائیں" : "Clear pin"}
+            Clear pin
           </button>
         )}
       </div>

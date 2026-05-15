@@ -52,7 +52,7 @@ function FlowCanvas({
   initialFocusId,
 }: FamilyTreeFlowProps) {
   const t = useTranslations("familyTree");
-  const isRtl = locale === "ur";
+  const isRtl = false;
   const { setCenter, fitView } = useReactFlow<PersonNodeType, Edge>();
 
   const [selectedId, setSelectedId] = useState<string | null>(null);

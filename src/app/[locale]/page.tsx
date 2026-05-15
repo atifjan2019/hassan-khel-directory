@@ -127,9 +127,7 @@ export default async function HomePage({
               </div>
             ) : (
               <p className="rounded-lg border border-dashed border-border bg-card/50 px-6 py-10 text-center text-sm text-muted-foreground">
-                {isUr
-                  ? "ابھی کوئی رکن رجسٹرڈ نہیں۔"
-                  : "No members registered yet."}
+                No members registered yet.
               </p>
             )}
           </div>

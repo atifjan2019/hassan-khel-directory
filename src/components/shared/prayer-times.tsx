@@ -19,14 +19,6 @@ const ORDER: { key: keyof Timings; label: string; icon: typeof Sun }[] = [
   { key: "Isha", label: "Isha", icon: Moon },
 ];
 
-const PRAYER_UR: Record<keyof Timings, string> = {
-  Fajr: "فجر",
-  Dhuhr: "ظہر",
-  Asr: "عصر",
-  Maghrib: "مغرب",
-  Isha: "عشاء",
-};
-
 /** Server component — fetched once/day from the free Aladhan API. */
 export async function PrayerTimes({ locale }: { locale: string }) {
   const t = await getTranslations("home");
@@ -66,7 +58,7 @@ export async function PrayerTimes({ locale }: { locale: string }) {
             >
               <Icon className="mx-auto mb-1.5 size-4 text-gold-400" />
               <div className="text-[11px] font-medium text-cream-100">
-                {locale === "ur" ? PRAYER_UR[key] : label}
+                {label}
               </div>
               <div className="mt-0.5 text-sm font-semibold tabular-nums">
                 {timings[key]}

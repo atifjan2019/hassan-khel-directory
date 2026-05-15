@@ -208,7 +208,7 @@ export function FatherAutocomplete({
                   className="px-3 py-3 text-sm text-muted-foreground"
                   aria-disabled="true"
                 >
-                  {locale === "ur" ? "تلاش جاری ہے…" : "Searching…"}
+                  Searching…
                 </li>
               )}
 
@@ -239,9 +239,7 @@ export function FatherAutocomplete({
                     className="px-3 py-3 text-sm text-muted-foreground"
                     aria-disabled="true"
                   >
-                    {locale === "ur"
-                      ? "کوئی مماثل رکن نہیں ملا"
-                      : "No matching member found"}
+                    No matching member found
                   </li>
                 )}
             </ul>
