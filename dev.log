@@ -820,3 +820,16 @@ Export fontNastaliq doesn't exist in target module
 The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
 Did you mean to import fontDisplay?
 All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+✓ Compiled in 192ms
+⨯ ReferenceError: fontNastaliq is not defined
+    at LocaleLayout (src\app\[locale]\layout.tsx:67:66)
+  65 |       lang={locale}
+  66 |       dir={dir(locale)}
+> 67 |       className={`${fontDisplay.variable} ${fontSans.variable} ${fontNastaliq.variable}`}
+     |                                                                  ^
+  68 |       suppressHydrationWarning
+  69 |     >
+  70 |       <body className="flex min-h-dvh flex-col" suppressHydrationWarning> {
+  digest: '896975079'
+}
+ GET /en/family-tree 500 in 1900ms (next.js: 756ms, proxy.ts: 180ms, generate-params: 616ms, application-code: 963ms)
