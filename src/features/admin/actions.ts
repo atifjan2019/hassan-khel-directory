@@ -154,11 +154,8 @@ export async function updateProfile(
     const update: Partial<ProfileRow> = {
       honorific: str(fd, "honorific"),
       full_name_en: str(fd, "full_name_en") ?? "",
-      full_name_ur: str(fd, "full_name_ur"),
       father_name_en: str(fd, "father_name_en") ?? "",
-      father_name_ur: str(fd, "father_name_ur"),
       grandfather_name_en: str(fd, "grandfather_name_en"),
-      grandfather_name_ur: str(fd, "grandfather_name_ur"),
       date_of_birth: str(fd, "date_of_birth"),
       profession: str(fd, "profession") ?? "other",
       qualification: str(fd, "qualification"),
@@ -169,7 +166,6 @@ export async function updateProfile(
       phone: str(fd, "phone"),
       email: str(fd, "email"),
       bio_en: str(fd, "bio_en"),
-      bio_ur: str(fd, "bio_ur"),
       hide_photo: bool(fd, "hide_photo"),
       is_deceased: bool(fd, "is_deceased"),
       latitude: num(fd, "latitude"),
@@ -208,9 +204,7 @@ export async function createNews(fd: FormData): Promise<ActionResult> {
     const supabase = await createClient();
     const { error } = await supabase.from("news_posts").insert({
       title_en: str(fd, "title_en") ?? "",
-      title_ur: str(fd, "title_ur"),
       body_en: str(fd, "body_en") ?? "",
-      body_ur: str(fd, "body_ur"),
       category: str(fd, "category") ?? "general",
       is_pinned: bool(fd, "is_pinned"),
       cover_image_url: cover,
@@ -242,9 +236,7 @@ export async function updateNews(
     );
     const update: Partial<NewsRow> = {
       title_en: str(fd, "title_en") ?? "",
-      title_ur: str(fd, "title_ur"),
       body_en: str(fd, "body_en") ?? "",
-      body_ur: str(fd, "body_ur"),
       category: str(fd, "category") ?? "general",
       is_pinned: bool(fd, "is_pinned"),
     };
