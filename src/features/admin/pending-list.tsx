@@ -120,24 +120,15 @@ export function PendingList({
                         <h3 className="font-display text-lg text-forest-700">
                           {displayName(locale, p)}
                         </h3>
-                        {p.full_name_ur && locale !== "ur" && (
-                          <span className="font-nastaliq text-base text-muted-foreground">
-                            {p.full_name_ur}
-                          </span>
-                        )}
                         <Badge variant="warning">
                           {formatDate(p.created_at, locale)}
                         </Badge>
                       </div>
                       <p className="mt-1 text-sm text-muted-foreground">
                         {tProfile("father")}:{" "}
-                        {localized(
-                          locale,
-                          p.father_name_en,
-                          p.father_name_ur,
-                        )}
+                        {localized(locale, p.father_name_en)}
                         {p.grandfather_name_en
-                          ? ` · ${localized(locale, p.grandfather_name_en, p.grandfather_name_ur)}`
+                          ? ` · ${localized(locale, p.grandfather_name_en)}`
                           : ""}
                       </p>
                       <p className="text-sm text-muted-foreground">

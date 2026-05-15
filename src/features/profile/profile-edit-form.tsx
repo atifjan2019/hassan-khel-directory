@@ -83,16 +83,6 @@ export function ProfileEditForm({
             dir="ltr"
           />
         </div>
-        <div>
-          <Label htmlFor="full_name_ur">{t("fullNameUr")}</Label>
-          <Input
-            id="full_name_ur"
-            name="full_name_ur"
-            defaultValue={profile.full_name_ur ?? ""}
-            dir="rtl"
-            className="font-nastaliq"
-          />
-        </div>
 
         <div>
           <Label htmlFor="date_of_birth">{t("dateOfBirth")}</Label>
