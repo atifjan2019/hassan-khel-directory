@@ -40,11 +40,11 @@ export async function generateMetadata({
       title: t("homeTitle"),
       description: t("homeDescription"),
       type: "website",
-      locale: locale === "ur" ? "ur_PK" : "en_US",
+      locale: "en_US",
     },
     robots: { index: true, follow: true },
     alternates: {
-      languages: { en: "/en", ur: "/ur" },
+      languages: { en: "/en" },
     },
   };
 }
