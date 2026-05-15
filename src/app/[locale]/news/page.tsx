@@ -49,7 +49,7 @@ export default async function NewsPage({
   const pinned = posts.filter((p) => p.is_pinned);
   const regular = posts.filter((p) => !p.is_pinned);
 
-  const allLabel = locale === "ur" ? "تمام" : "All";
+  const allLabel = "All";
 
   return (
     <div className="container-page">
@@ -99,9 +99,7 @@ export default async function NewsPage({
             title={t("empty")}
             description={
               activeCategory
-                ? locale === "ur"
-                  ? "اس زمرے میں کوئی اعلان نہیں۔"
-                  : "No announcements in this category."
+                ? "No announcements in this category."
                 : undefined
             }
             action={

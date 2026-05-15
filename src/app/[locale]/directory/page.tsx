@@ -109,7 +109,7 @@ export default async function DirectoryPage({
             {total > pageSize && (
               <nav
                 className="mt-10 flex items-center justify-between gap-4"
-                aria-label={locale === "ur" ? "صفحہ بندی" : "Pagination"}
+                aria-label="Pagination"
               >
                 {page > 1 ? (
                   <Button variant="outline" size="sm" asChild>
@@ -120,7 +120,7 @@ export default async function DirectoryPage({
                       <span aria-hidden="true" className="hidden rtl:inline">
                         →
                       </span>
-                      {locale === "ur" ? "پچھلا" : "Previous"}
+                      Previous
                     </Link>
                   </Button>
                 ) : (
@@ -128,20 +128,18 @@ export default async function DirectoryPage({
                     aria-disabled="true"
                     className="invisible select-none text-sm"
                   >
-                    {locale === "ur" ? "پچھلا" : "Previous"}
+                    Previous
                   </span>
                 )}
 
                 <p className="text-sm text-muted-foreground" aria-live="polite">
-                  {locale === "ur"
-                    ? `صفحہ ${page} / ${totalPages}`
-                    : `Page ${page} of ${totalPages}`}
+                  {`Page ${page} of ${totalPages}`}
                 </p>
 
                 {hasMore ? (
                   <Button variant="outline" size="sm" asChild>
                     <Link href={buildPageQuery(page + 1)} rel="next" scroll>
-                      {locale === "ur" ? "اگلا" : "Next"}
+                      Next
                       <span aria-hidden="true" className="rtl:hidden">
                         →
                       </span>
@@ -155,7 +153,7 @@ export default async function DirectoryPage({
                     aria-disabled="true"
                     className="invisible select-none text-sm"
                   >
-                    {locale === "ur" ? "اگلا" : "Next"}
+                    Next
                   </span>
                 )}
               </nav>

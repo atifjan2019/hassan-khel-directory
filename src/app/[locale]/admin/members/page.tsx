@@ -32,7 +32,7 @@ export default async function AdminMembersPage({
       {profiles.length === 0 ? (
         <EmptyState
           icon={Users}
-          title={locale === "ur" ? "کوئی رکن نہیں" : "No members yet"}
+          title="No members yet"
         />
       ) : (
         <MembersTable profiles={profiles} locale={locale} />

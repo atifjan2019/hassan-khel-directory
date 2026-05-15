@@ -42,7 +42,6 @@ export default async function HomePage({
   ]);
 
   const t = await getTranslations("home");
-  const isUr = locale === "ur";
 
   const statItems = [
     { label: t("statMembers"), value: stats?.total_members ?? 0, icon: Users },
@@ -96,7 +95,7 @@ export default async function HomePage({
               <NewsTeaser posts={news} locale={locale} />
             ) : (
               <p className="rounded-lg border border-dashed border-border bg-card/50 px-6 py-10 text-center text-sm text-muted-foreground">
-                {isUr ? "ابھی کوئی اعلان نہیں۔" : "No announcements yet."}
+                No announcements yet.
               </p>
             )}
           </div>

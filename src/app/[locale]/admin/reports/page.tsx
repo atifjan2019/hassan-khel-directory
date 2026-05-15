@@ -100,7 +100,7 @@ export default async function AdminReportsPage({
               {stats?.news_count ?? 0}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
-              {locale === "ur" ? "اعلانات" : "Announcements"}
+              {"Announcements"}
             </p>
           </CardContent>
         </Card>
@@ -113,9 +113,7 @@ export default async function AdminReportsPage({
               {t("professionBreakdown")}
             </h2>
             {professions.length === 0 ? (
-              <p className="text-sm text-muted-foreground">
-                {locale === "ur" ? "کوئی ڈیٹا نہیں" : "No data"}
-              </p>
+              <p className="text-sm text-muted-foreground">No data</p>
             ) : (
               professions.map(([key, count]) => (
                 <Bar
@@ -135,9 +133,7 @@ export default async function AdminReportsPage({
               {t("cityBreakdown")}
             </h2>
             {cities.length === 0 ? (
-              <p className="text-sm text-muted-foreground">
-                {locale === "ur" ? "کوئی ڈیٹا نہیں" : "No data"}
-              </p>
+              <p className="text-sm text-muted-foreground">No data</p>
             ) : (
               cities.map((c) => (
                 <Bar
