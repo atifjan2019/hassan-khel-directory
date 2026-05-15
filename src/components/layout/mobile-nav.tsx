@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { NAV_ITEMS } from "@/components/layout/nav-config";
-import { LocaleSwitcher } from "@/components/shared/locale-switcher";
 import { cn } from "@/lib/utils";
 
 export function MobileNav({
@@ -37,8 +36,7 @@ export function MobileNav({
             onClick={() => setOpen(false)}
           />
           <nav className="absolute inset-y-0 end-0 flex w-[82%] max-w-xs flex-col bg-cream-50 p-6 shadow-card animate-fade-in">
-            <div className="mb-6 flex items-center justify-between">
-              <LocaleSwitcher />
+            <div className="mb-6 flex items-center justify-end">
               <button
                 type="button"
                 onClick={() => setOpen(false)}

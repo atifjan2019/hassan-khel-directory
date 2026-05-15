@@ -86,10 +86,10 @@ export const COMMON_CITIES = [
   "Muscat",
 ] as const;
 
-export const LOCALES = ["ur", "en"] as const;
+export const LOCALES = ["en"] as const;
 export type Locale = (typeof LOCALES)[number];
-export const DEFAULT_LOCALE: Locale = "ur";
-export const RTL_LOCALES: Locale[] = ["ur"];
+export const DEFAULT_LOCALE: Locale = "en";
+export const RTL_LOCALES: Locale[] = [];
 
 export const VILLAGE = {
   nameEn: "Hassan Khel",

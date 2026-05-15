@@ -69,21 +69,6 @@
     text-wrap: balance;
   }
 
-  /* Urdu / RTL: Nastaliq face + comfortable line height */
-  [dir="rtl"] {
-    font-family: var(--font-nastaliq), serif;
-  }
-  [dir="rtl"] h1,
-  [dir="rtl"] h2,
-  [dir="rtl"] h3,
-  [dir="rtl"] h4 {
-    font-family: var(--font-nastaliq), serif;
-    line-height: 2;
-  }
-  [dir="rtl"] body {
-    line-height: 2.1;
-  }
-
   :focus-visible {
     @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }

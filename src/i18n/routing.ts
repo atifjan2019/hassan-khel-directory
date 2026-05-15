@@ -4,7 +4,8 @@ import { LOCALES, DEFAULT_LOCALE } from "@/lib/constants";
 export const routing = defineRouting({
   locales: [...LOCALES],
   defaultLocale: DEFAULT_LOCALE,
-  // Always prefix so RTL/LTR is unambiguous and pages are cacheable per locale.
+  // Single locale (English). Always-prefix keeps URLs at /en/… and pages
+  // cacheable; detection is moot with one locale.
   localePrefix: "always",
-  localeDetection: true,
+  localeDetection: false,
 });

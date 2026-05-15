@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/shared/logo";
-import { LocaleSwitcher } from "@/components/shared/locale-switcher";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { NavLink } from "@/components/layout/nav-link";
 import { NAV_ITEMS } from "@/components/layout/nav-config";
@@ -26,7 +25,6 @@ export async function Header({ locale }: { locale: string }) {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <LocaleSwitcher />
           {user ? (
             <>
               {isAdmin && (

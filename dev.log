@@ -44,3 +44,779 @@ Unhandled Rejection: Error: Both middleware file "./src\middleware.ts" and proxy
  GET /ur/register 200 in 1644ms (next.js: 1602ms, proxy.ts: 6ms, generate-params: 688ms, application-code: 36ms)
  GET /en/register 200 in 86ms (next.js: 13ms, proxy.ts: 6ms, generate-params: 6ms, application-code: 67ms)
  GET /en 200 in 821ms (next.js: 19ms, proxy.ts: 8ms, generate-params: 7ms, application-code: 794ms)
+ GET /en/login 200 in 52ms (next.js: 14ms, proxy.ts: 7ms, generate-params: 7ms, application-code: 31ms)
+ GET /en/profile 200 in 3.8s (next.js: 1458ms, proxy.ts: 633ms, generate-params: 754ms, application-code: 1707ms)
+ GET /en/profile 200 in 681ms (next.js: 18ms, proxy.ts: 655ms, generate-params: 8ms, application-code: 8ms)
+ GET /en/profile 200 in 1602ms (next.js: 10ms, proxy.ts: 404ms, generate-params: 42µs, application-code: 1188ms)
+ GET /en/admin 200 in 3.3s (next.js: 1203ms, proxy.ts: 638ms, generate-params: 646ms, application-code: 1469ms)
+ GET /en/admin/pending 200 in 3.2s (next.js: 1300ms, proxy.ts: 372ms, generate-params: 659ms, application-code: 1512ms)
+ GET /en/admin/members 200 in 3.2s (next.js: 1487ms, proxy.ts: 411ms, generate-params: 754ms, application-code: 1283ms)
+ GET /en/profile 200 in 2.1s (next.js: 48ms, proxy.ts: 652ms, generate-params: 15ms, application-code: 1448ms)
+ GET /api/auth/signout 307 in 929ms (next.js: 533ms, application-code: 395ms)
+ GET /ur?signedout=1 200 in 1098ms (next.js: 18ms, proxy.ts: 10ms, generate-params: 10ms, application-code: 1070ms)
+✓ Compiled in 54ms
+✓ Compiled in 3ms
+ GET /en/ur?signedout=1 404 in 199ms (next.js: 111ms, proxy.ts: 15ms, application-code: 72ms)
+ GET /en/ur?signedout=1 404 in 112ms (next.js: 17ms, proxy.ts: 14ms, application-code: 80ms)
+ GET /en/ur?signedout=1 404 in 256ms (next.js: 18ms, proxy.ts: 13ms, application-code: 225ms)
+ GET /en/ur?signedout=1 404 in 236ms (next.js: 50ms, proxy.ts: 23ms, application-code: 163ms)
+ GET /en/ur?signedout=1 404 in 230ms (next.js: 137ms, proxy.ts: 19ms, application-code: 74ms)
+ GET /en/ur?signedout=1 404 in 231ms (next.js: 164ms, proxy.ts: 18ms, application-code: 49ms)
+ GET /en/ur?signedout=1 404 in 242ms (next.js: 73ms, proxy.ts: 23ms, application-code: 146ms)
+ GET /en/ur?signedout=1 404 in 294ms (next.js: 34ms, proxy.ts: 22ms, application-code: 238ms)
+ GET /en/ur?signedout=1 404 in 49ms (next.js: 8ms, proxy.ts: 5ms, application-code: 35ms)
+ GET /en 200 in 1262ms (next.js: 148ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 1107ms)
+✓ Compiled in 405ms
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (file:\C:\Users\ss\hassan-khel-directory\src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '2889301748'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '2889301748'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '2889301748'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+ GET /en 200 in 1515ms (next.js: 132ms, proxy.ts: 177ms, generate-params: 7ms, application-code: 1206ms)
+ GET /en 200 in 1038ms (next.js: 31ms, proxy.ts: 81ms, generate-params: 24µs, application-code: 926ms)
+ GET /en 200 in 1038ms (next.js: 80ms, proxy.ts: 82ms, generate-params: 30µs, application-code: 876ms)
+ GET /en 200 in 1172ms (next.js: 123ms, proxy.ts: 83ms, generate-params: 24µs, application-code: 966ms)
+ GET /en 200 in 1171ms (next.js: 179ms, proxy.ts: 84ms, generate-params: 24µs, application-code: 908ms)
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+ GET /en 200 in 4.7s (next.js: 224ms, proxy.ts: 11ms, generate-params: 7ms, application-code: 4.5s)
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '2889301748'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '2889301748'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+⨯ ReferenceError: LocaleSwitcher is not defined
+    at Header (src\components\layout\header.tsx:28:12)
+  26 |
+  27 |         <div className="hidden items-center gap-2 lg:flex">
+> 28 |           <LocaleSwitcher />
+     |            ^
+  29 |           {user ? (
+  30 |             <>
+  31 |               {isAdmin && ( {
+  digest: '1405192987'
+}
+✓ Compiled in 135ms
+ GET /en 200 in 1700ms (next.js: 21ms, proxy.ts: 11ms, generate-params: 8ms, application-code: 1668ms)
+ GET /en 200 in 1612ms (next.js: 136ms, proxy.ts: 114ms, generate-params: 26µs, application-code: 1362ms)
+ GET /en 200 in 1909ms (next.js: 63ms, proxy.ts: 113ms, generate-params: 26µs, application-code: 1733ms)
+ GET /en 200 in 1853ms (next.js: 494ms, proxy.ts: 82ms, generate-params: 42µs, application-code: 1277ms)
+ GET /en 200 in 1956ms (next.js: 193ms, proxy.ts: 116ms, generate-params: 47µs, application-code: 1647ms)
+ GET /en 200 in 1307ms (next.js: 20ms, proxy.ts: 254ms, generate-params: 9ms, application-code: 1034ms)
+ GET /en 200 in 1541ms (next.js: 161ms, proxy.ts: 125ms, generate-params: 27µs, application-code: 1256ms)
+ GET /en 200 in 1130ms (next.js: 33ms, proxy.ts: 121ms, generate-params: 7ms, application-code: 975ms)
+ GET /en 200 in 1102ms (next.js: 142ms, proxy.ts: 39ms, generate-params: 35µs, application-code: 921ms)
+ GET /en 200 in 1134ms (next.js: 225ms, proxy.ts: 40ms, generate-params: 43µs, application-code: 868ms)
+ GET /en 200 in 1144ms (next.js: 369ms, proxy.ts: 21ms, generate-params: 25µs, application-code: 754ms)
+ GET /en 200 in 934ms (next.js: 43ms, proxy.ts: 368ms, generate-params: 6ms, application-code: 523ms)
+ GET /en 200 in 1129ms (next.js: 14ms, proxy.ts: 8ms, generate-params: 42µs, application-code: 1107ms)
+ GET /en 200 in 1071ms (next.js: 52ms, proxy.ts: 108ms, generate-params: 22µs, application-code: 911ms)
+ GET /en 200 in 1026ms (next.js: 254ms, proxy.ts: 39ms, generate-params: 23µs, application-code: 733ms)
+ GET /en 200 in 1049ms (next.js: 302ms, proxy.ts: 18ms, generate-params: 33µs, application-code: 729ms)
+ GET /en 200 in 1116ms (next.js: 141ms, proxy.ts: 74ms, generate-params: 24µs, application-code: 901ms)
+ GET /en 200 in 1066ms (next.js: 59ms, proxy.ts: 408ms, generate-params: 7ms, application-code: 600ms)
+ GET /en 200 in 1163ms (next.js: 18ms, proxy.ts: 8ms, generate-params: 42µs, application-code: 1136ms)
+ GET /en 200 in 1157ms (next.js: 83ms, proxy.ts: 146ms, generate-params: 25µs, application-code: 928ms)
+ GET /en 200 in 1019ms (next.js: 182ms, proxy.ts: 65ms, generate-params: 31µs, application-code: 772ms)
+ GET /en 200 in 983ms (next.js: 339ms, proxy.ts: 37ms, generate-params: 24µs, application-code: 607ms)
+ GET /en 200 in 986ms (next.js: 285ms, proxy.ts: 37ms, generate-params: 24µs, application-code: 664ms)
+ GET /en 200 in 1214ms (next.js: 17ms, proxy.ts: 235ms, generate-params: 6ms, application-code: 961ms)
+ GET /en 200 in 1164ms (next.js: 16ms, proxy.ts: 8ms, generate-params: 26µs, application-code: 1140ms)
+ GET /en 200 in 1164ms (next.js: 116ms, proxy.ts: 117ms, generate-params: 24µs, application-code: 930ms)
+ GET /en 200 in 1053ms (next.js: 188ms, proxy.ts: 99ms, generate-params: 37µs, application-code: 766ms)
+ GET /en 200 in 1049ms (next.js: 292ms, proxy.ts: 101ms, generate-params: 36µs, application-code: 656ms)
+ GET /en 200 in 1157ms (next.js: 246ms, proxy.ts: 100ms, generate-params: 24µs, application-code: 811ms)
+ GET /en 200 in 1227ms (next.js: 21ms, proxy.ts: 13ms, generate-params: 6ms, application-code: 1193ms)
+ GET /en 200 in 1217ms (next.js: 15ms, proxy.ts: 7ms, generate-params: 24µs, application-code: 1195ms)
+ GET /en 200 in 1215ms (next.js: 52ms, proxy.ts: 209ms, generate-params: 23µs, application-code: 954ms)
+ GET /en 200 in 1075ms (next.js: 193ms, proxy.ts: 98ms, generate-params: 31µs, application-code: 784ms)
+ GET /en 200 in 1078ms (next.js: 133ms, proxy.ts: 97ms, generate-params: 23µs, application-code: 848ms)
+ GET /en 200 in 1121ms (next.js: 448ms, proxy.ts: 40ms, generate-params: 6ms, application-code: 633ms)
+ GET /en 200 in 617ms (next.js: 8ms, proxy.ts: 10ms, generate-params: 25µs, application-code: 599ms)
+ GET /en 200 in 1273ms (next.js: 20ms, proxy.ts: 7ms, generate-params: 36µs, application-code: 1246ms)
+ GET /en 200 in 1281ms (next.js: 76ms, proxy.ts: 153ms, generate-params: 43µs, application-code: 1052ms)
+ GET /en 200 in 1345ms (next.js: 16ms, proxy.ts: 52ms, generate-params: 7ms, application-code: 1277ms)
+ GET /en 200 in 1341ms (next.js: 19ms, proxy.ts: 98ms, generate-params: 25µs, application-code: 1224ms)
+ GET /en 200 in 1340ms (next.js: 179ms, proxy.ts: 99ms, generate-params: 25µs, application-code: 1062ms)
+ GET /en 200 in 1450ms (next.js: 117ms, proxy.ts: 98ms, generate-params: 37µs, application-code: 1235ms)
+ GET /en 200 in 1506ms (next.js: 28ms, proxy.ts: 12ms, generate-params: 10ms, application-code: 1466ms)
+ GET /en 200 in 1499ms (next.js: 71ms, proxy.ts: 223ms, generate-params: 37µs, application-code: 1205ms)
+ GET /en 200 in 1338ms (next.js: 16ms, proxy.ts: 36ms, generate-params: 45µs, application-code: 1286ms)
+ GET /en 200 in 1321ms (next.js: 27ms, proxy.ts: 135ms, generate-params: 24µs, application-code: 1159ms)
+ GET /en 200 in 1321ms (next.js: 86ms, proxy.ts: 138ms, generate-params: 25µs, application-code: 1096ms)
+ GET /en 200 in 1375ms (next.js: 412ms, proxy.ts: 47ms, generate-params: 12ms, application-code: 916ms)
+ GET /en 200 in 696ms (next.js: 19ms, proxy.ts: 9ms, generate-params: 44µs, application-code: 668ms)
+ GET /en 200 in 680ms (next.js: 73ms, proxy.ts: 151ms, generate-params: 38µs, application-code: 456ms)
+ GET /en 200 in 263ms (next.js: 14ms, proxy.ts: 43ms, generate-params: 29µs, application-code: 206ms)
+✓ Compiled in 312ms
+ GET /en 200 in 1742ms (next.js: 175ms, proxy.ts: 112ms, generate-params: 7ms, application-code: 1455ms)
+ GET /en 200 in 1367ms (next.js: 313ms, proxy.ts: 115ms, generate-params: 21µs, application-code: 940ms)
+ GET /en 200 in 1219ms (next.js: 174ms, proxy.ts: 65ms, generate-params: 22µs, application-code: 980ms)
+ GET /en 200 in 1310ms (next.js: 25ms, proxy.ts: 62ms, generate-params: 7ms, application-code: 1222ms)
+ GET /en 200 in 637ms (next.js: 13ms, proxy.ts: 9ms, generate-params: 40µs, application-code: 616ms)
+ GET /en 200 in 1310ms (next.js: 110ms, proxy.ts: 63ms, generate-params: 22µs, application-code: 1136ms)
+ GET /en 200 in 372ms (next.js: 145ms, proxy.ts: 53ms, generate-params: 13ms, application-code: 174ms)
+ GET /en 200 in 2.4s (next.js: 520ms, proxy.ts: 6ms, generate-params: 23µs, application-code: 1854ms)
+✓ Compiled in 107ms
+ GET /en 200 in 471ms (next.js: 145ms, proxy.ts: 97ms, generate-params: 6ms, application-code: 229ms)
+ GET /en 200 in 1239ms (next.js: 15ms, proxy.ts: 9ms, generate-params: 7ms, application-code: 1214ms)
+ GET /en/family-tree 200 in 603ms (next.js: 147ms, proxy.ts: 7ms, generate-params: 7ms, application-code: 449ms)
+✓ Compiled in 472ms
+⨯ ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src\lib\fonts.ts:17:29)
+    at module evaluation (src\app\[locale]\layout.tsx:7:1)
+    at module evaluation (C:\Users\ss\hassan-khel-directory\.next\dev\server\chunks\ssr\[root-of-the-server]__0_8ilap._.js:1233:47)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq",
+⨯ ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src\lib\fonts.ts:17:29)
+    at module evaluation (src\app\[locale]\layout.tsx:7:1)
+    at module evaluation (C:\Users\ss\hassan-khel-directory\.next\dev\server\chunks\ssr\[root-of-the-server]__0_8ilap._.js:1233:47)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq", {
+  page: '/en/family-tree'
+}
+✓ Compiled in 251ms
+⨯ Failed to generate static paths for /[locale]/family-tree:
+ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src\lib\fonts.ts:17:29)
+    at module evaluation (src\app\[locale]\layout.tsx:7:1)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq", {
+  type: 'ReferenceError'
+}
+ GET /en/family-tree 500 in 3.1s (next.js: 2.9s, proxy.ts: 12ms, generate-params: 7ms, application-code: 181ms)
+[browser] [React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+[browser] [React Flow]: The React Flow parent container needs a width and a height to render the graph. Help: https://reactflow.dev/error#004
+⨯ ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src\lib\fonts.ts:17:29)
+    at module evaluation (src\app\[locale]\layout.tsx:7:1)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq", {
+  type: 'ReferenceError',
+  page: '/en/family-tree'
+}
+⨯ ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src\lib\fonts.ts:17:29)
+    at module evaluation (src\app\[locale]\layout.tsx:7:1)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq", {
+  type: 'ReferenceError',
+  page: '/en/family-tree'
+}
+ GET /en/family-tree 500 in 977ms (next.js: 843ms, proxy.ts: 111ms, application-code: 22ms)
+ GET /en/family-tree 500 in 865ms (next.js: 847ms, proxy.ts: 8ms, application-code: 10ms)
+ GET /en/family-tree 200 in 40ms (proxy.ts: 9ms)
+[browser] Uncaught ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src/lib/fonts.ts:17:29)
+    at module evaluation (src/app/[locale]/layout.tsx:7:1)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq",
+⨯ ReferenceError: Noto_Nastaliq_Urdu is not defined
+    at module evaluation (src\lib\fonts.ts:17:29)
+    at module evaluation (src\app\[locale]\layout.tsx:7:1)
+  15 | });
+  16 |
+> 17 | export const fontNastaliq = Noto_Nastaliq_Urdu({
+     |                             ^
+  18 |   subsets: ["arabic"],
+  19 |   weight: ["400", "500", "700"],
+  20 |   variable: "--font-nastaliq", {
+  type: 'ReferenceError',
+  page: '/en/family-tree'
+}
+⨯ ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+  [90m 5 |[0m [36mimport[0m { routing } [36mfrom[0m [32m"@/i18n/routing"[0m;
+  [90m 6 |[0m [36mimport[0m { dir } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 7 |[0m [36mimport[0m { fontDisplay, fontSans, fontNastaliq } [36mfrom[0m [32m"@/lib/fonts"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m [36mimport[0m { [33mHeader[0m } [36mfrom[0m [32m"@/components/layout/header"[0m;
+  [90m 9 |[0m [36mimport[0m { [33mFooter[0m } [36mfrom[0m [32m"@/components/layout/footer"[0m;
+  [90m10 |[0m [36mimport[0m [32m"../globals.css"[0m;
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+ GET /en/family-tree 500 in 357ms (next.js: 147ms, proxy.ts: 183ms, application-code: 28ms)
+[browser] Uncaught Error: ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+    at <unknown> (Error: ./src/app/[locale]/layout.tsx:7:1)
+    at <unknown> (Error: (./src/app/[locale]/layout.tsx:7:1)
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+⨯ ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+  [90m 5 |[0m [36mimport[0m { routing } [36mfrom[0m [32m"@/i18n/routing"[0m;
+  [90m 6 |[0m [36mimport[0m { dir } [36mfrom[0m [32m"@/lib/utils"[0m;
+[31m[1m>[0m [90m 7 |[0m [36mimport[0m { fontDisplay, fontSans, fontNastaliq } [36mfrom[0m [32m"@/lib/fonts"[0m;
+  [90m   |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m 8 |[0m [36mimport[0m { [33mHeader[0m } [36mfrom[0m [32m"@/components/layout/header"[0m;
+  [90m 9 |[0m [36mimport[0m { [33mFooter[0m } [36mfrom[0m [32m"@/components/layout/footer"[0m;
+  [90m10 |[0m [36mimport[0m [32m"../globals.css"[0m;
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+ GET /en/family-tree 500 in 38ms (next.js: 14ms, proxy.ts: 10ms, application-code: 14ms)
+[browser] Uncaught Error: ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+    at <unknown> (Error: ./src/app/[locale]/layout.tsx:7:1)
+    at <unknown> (Error: (./src/app/[locale]/layout.tsx:7:1)
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
+[browser] ./src/app/[locale]/layout.tsx:7:1
+Export fontNastaliq doesn't exist in target module
+   5 | import { routing } from "@/i18n/routing";
+   6 | import { dir } from "@/lib/utils";
+>  7 | import { fontDisplay, fontSans, fontNastaliq } from "@/lib/fonts";
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | import { Header } from "@/components/layout/header";
+   9 | import { Footer } from "@/components/layout/footer";
+  10 | import "../globals.css";
+
+The export fontNastaliq was not found in module [project]/src/lib/fonts.ts [app-rsc] (ecmascript).
+Did you mean to import fontDisplay?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist. 
