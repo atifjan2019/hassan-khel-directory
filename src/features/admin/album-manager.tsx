@@ -337,29 +337,17 @@ export function AlbumManager({ albums, selected, locale }: Props) {
               className="space-y-4"
               key={editing?.id ?? "new"}
             >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="title_en" required>
-                    {t("titleEn")}
-                  </Label>
-                  <Input
-                    id="title_en"
-                    name="title_en"
-                    required
-                    defaultValue={editing?.title_en ?? ""}
-                    dir="ltr"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="title_ur">{t("titleUr")}</Label>
-                  <Input
-                    id="title_ur"
-                    name="title_ur"
-                    defaultValue={editing?.title_ur ?? ""}
-                    dir="rtl"
-                    className="font-nastaliq"
-                  />
-                </div>
+              <div>
+                <Label htmlFor="title_en" required>
+                  {t("titleEn")}
+                </Label>
+                <Input
+                  id="title_en"
+                  name="title_en"
+                  required
+                  defaultValue={editing?.title_en ?? ""}
+                  dir="ltr"
+                />
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -390,28 +378,15 @@ export function AlbumManager({ albums, selected, locale }: Props) {
                   />
                 </div>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="description_en">{t("descEn")}</Label>
-                  <Textarea
-                    id="description_en"
-                    name="description_en"
-                    rows={3}
-                    defaultValue={editing?.description_en ?? ""}
-                    dir="ltr"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="description_ur">{t("descUr")}</Label>
-                  <Textarea
-                    id="description_ur"
-                    name="description_ur"
-                    rows={3}
-                    defaultValue={editing?.description_ur ?? ""}
-                    dir="rtl"
-                    className="font-nastaliq"
-                  />
-                </div>
+              <div>
+                <Label htmlFor="description_en">{t("descEn")}</Label>
+                <Textarea
+                  id="description_en"
+                  name="description_en"
+                  rows={3}
+                  defaultValue={editing?.description_en ?? ""}
+                  dir="ltr"
+                />
               </div>
               <div className="flex gap-2">
                 <Button type="submit" disabled={pending}>
@@ -455,7 +430,7 @@ export function AlbumManager({ albums, selected, locale }: Props) {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="font-medium">
-                      {localized(locale, a.title_en, a.title_ur)}
+                      {localized(locale, a.title_en)}
                     </p>
                     <p className="text-sm text-muted-foreground">
                       {formatDate(a.event_date, locale)}
