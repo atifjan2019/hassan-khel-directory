@@ -1,0 +1,28 @@
+
+> hassan-khel-directory@1.0.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.23:3000
+- Environments: .env.local
+✓ Ready in 896ms
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+Unhandled Rejection: Error: Both middleware file "./src\middleware.ts" and proxy file "./src\proxy.ts" are detected. Please use "./src\proxy.ts" only. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+    at ignore-listed frames
+Unhandled Rejection: Error: Both middleware file "./src\middleware.ts" and proxy file "./src\proxy.ts" are detected. Please use "./src\proxy.ts" only. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+    at ignore-listed frames
+Unhandled Rejection: Error: Both middleware file "./src\middleware.ts" and proxy file "./src\proxy.ts" are detected. Please use "./src\proxy.ts" only. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+    at ignore-listed frames
+✓ Compiled in 84.2s
+- Experiments (use with caution):
+  · optimizePackageImports
+
+ GET /en 200 in 3.1s (next.js: 902ms, proxy.ts: 265ms, generate-params: 672ms, application-code: 1930ms)
+ GET /ur 200 in 1223ms (next.js: 21ms, proxy.ts: 11ms, generate-params: 9ms, application-code: 1191ms)
+ GET /en 200 in 1334ms (next.js: 18ms, proxy.ts: 7ms, generate-params: 7ms, application-code: 1309ms)
+ GET /en 200 in 1221ms (next.js: 13ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 1202ms)
+ GET /ur 200 in 551ms (next.js: 13ms, proxy.ts: 7ms, generate-params: 7ms, application-code: 531ms)
+ GET /en/family-tree 200 in 3.2s (next.js: 2.5s, proxy.ts: 7ms, generate-params: 667ms, application-code: 707ms)
+ GET /en/map 200 in 2.1s (next.js: 1367ms, proxy.ts: 6ms, generate-params: 662ms, application-code: 685ms)
+ GET /en/gallery 200 in 1806ms (next.js: 1139ms, proxy.ts: 7ms, generate-params: 689ms, application-code: 660ms)

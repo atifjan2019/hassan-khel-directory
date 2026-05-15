@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cream paper canvas, charcoal ink */
+    --background: 40 38% 93%;
+    --foreground: 0 0% 10%;
+
+    --card: 40 44% 96%;
+    --card-foreground: 0 0% 10%;
+    --popover: 40 44% 97%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Deep forest green */
+    --primary: 154 42% 18%;
+    --primary-foreground: 40 44% 96%;
+
+    /* Warm terracotta */
+    --secondary: 17 50% 57%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 38 33% 86%;
+    --muted-foreground: 60 4% 32%;
+
+    /* Muted gold */
+    --accent: 41 56% 51%;
+    --accent-foreground: 154 42% 14%;
+
+    --destructive: 0 58% 42%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 30% 78%;
+    --input: 38 30% 78%;
+    --ring: 154 42% 28%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-color: hsl(var(--background));
+    /* Soft paper texture — cheap, GPU-free, prints subtle dots */
+    background-image: radial-gradient(
+      rgba(27, 67, 50, 0.035) 0.5px,
+      transparent 0.5px
+    );
+    background-size: 20px 20px;
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-forest-700;
+    text-wrap: balance;
+  }
+
+  /* Urdu / RTL: Nastaliq face + comfortable line height */
+  [dir="rtl"] {
+    font-family: var(--font-nastaliq), serif;
+  }
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4 {
+    font-family: var(--font-nastaliq), serif;
+    line-height: 2;
+  }
+  [dir="rtl"] body {
+    line-height: 2.1;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.35);
+  }
+
+  /* Respect data-saver / reduced motion (rural, slow devices) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Decorative geometric divider — subtle Islamic-pattern band */
+  .geo-divider {
+    height: 14px;
+    width: 100%;
+    background-color: transparent;
+    background-image:
+      linear-gradient(135deg, hsl(var(--accent) / 0.5) 25%, transparent 25%),
+      linear-gradient(225deg, hsl(var(--accent) / 0.5) 25%, transparent 25%);
+    background-size: 14px 14px;
+    background-position: 0 0;
+    opacity: 0.55;
+  }
+
+  .geo-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: hsl(var(--accent));
+  }
+  .geo-rule::before,
+  .geo-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsl(var(--accent) / 0.6),
+      transparent
+    );
+  }
+
+  .card-paper {
+    @apply rounded-lg border border-border bg-card shadow-card;
+  }
+
+  .container-page {
+    @apply container mx-auto px-4 py-8 sm:py-12;
+  }
+
+  .prose-village {
+    @apply leading-relaxed text-charcoal/90;
+  }
+  .prose-village p {
+    @apply mb-4;
+  }
+  .prose-village h2 {
+    @apply mt-8 mb-3 text-2xl;
+  }
+}
+
+/* ── Leaflet tweaks (loaded globally; map is lazy) ───────────────────── */
+.leaflet-container {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  background: hsl(var(--muted));
+  z-index: 0;
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+}
+
+/* ── React Flow theming to match the palette ────────────────────────── */
+.react-flow__attribution {
+  background: transparent !important;
+  font-size: 10px;
+}
+.react-flow__node {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+.react-flow__controls-button {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+}
