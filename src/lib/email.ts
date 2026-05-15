@@ -27,7 +27,7 @@ export async function notifyAdminNewRegistration(profile: {
     process.env.ADMIN_NOTIFY_FROM ?? "Hassan Khel Directory <onboarding@resend.dev>";
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const pendingUrl = `${siteUrl}/en/admin/pending`;
+  const pendingUrl = `${siteUrl}/admin/pending`;
 
   const lines = [
     `Full name: ${profile.full_name_en}`,

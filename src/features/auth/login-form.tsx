@@ -10,10 +10,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 
-export function LoginForm({ locale }: { locale: string }) {
+export function LoginForm({ locale: _locale }: { locale?: string }) {
   const t = useTranslations("auth");
   const search = useSearchParams();
-  const next = search.get("next") ?? `/${locale}/profile`;
+  const next = search.get("next") ?? `/profile`;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -6,16 +6,18 @@
 - Local:         http://localhost:3000
 - Network:       http://192.168.1.23:3000
 - Environments: .env.local
-✓ Ready in 672ms
+✓ Ready in 650ms
 - Experiments (use with caution):
   · optimizePackageImports
 
- GET /en 200 in 1503ms (next.js: 17ms, proxy.ts: 6ms, generate-params: 8ms, application-code: 1479ms)
- GET /en 200 in 3.8s (next.js: 870ms, proxy.ts: 1000ms, generate-params: 652ms, application-code: 1958ms)
- GET /en/directory 200 in 1549ms (next.js: 871ms, proxy.ts: 10ms, generate-params: 825ms, application-code: 668ms)
- GET /en/family-tree 200 in 1150ms (next.js: 642ms, proxy.ts: 6ms, generate-params: 611ms, application-code: 502ms)
- GET /en/news 200 in 1836ms (next.js: 1314ms, proxy.ts: 5ms, generate-params: 654ms, application-code: 517ms)
- GET /en/gallery 200 in 1162ms (next.js: 660ms, proxy.ts: 7ms, generate-params: 624ms, application-code: 496ms)
- GET /en/login 200 in 808ms (next.js: 658ms, proxy.ts: 6ms, generate-params: 627ms, application-code: 144ms)
- GET /en/register 200 in 857ms (next.js: 668ms, proxy.ts: 6ms, generate-params: 631ms, application-code: 184ms)
- GET /en/directory 200 in 945ms (next.js: 14ms, proxy.ts: 9ms, generate-params: 7ms, application-code: 922ms)
+ GET / 200 in 2.9s (next.js: 850ms, proxy.ts: 296ms, generate-params: 644ms, application-code: 1783ms)
+ GET / 200 in 1150ms (next.js: 104ms, proxy.ts: 265ms, generate-params: 12ms, application-code: 781ms)
+ GET /directory 200 in 1381ms (next.js: 690ms, proxy.ts: 6ms, generate-params: 646ms, application-code: 684ms)
+ GET /family-tree 200 in 1181ms (next.js: 662ms, proxy.ts: 6ms, generate-params: 630ms, application-code: 513ms)
+ GET /news 200 in 1263ms (next.js: 669ms, proxy.ts: 6ms, generate-params: 635ms, application-code: 587ms)
+ GET /gallery 200 in 1160ms (next.js: 692ms, proxy.ts: 6ms, generate-params: 658ms, application-code: 463ms)
+ GET /login 200 in 808ms (next.js: 663ms, proxy.ts: 7ms, generate-params: 623ms, application-code: 138ms)
+ GET /register 200 in 843ms (next.js: 663ms, proxy.ts: 6ms, generate-params: 625ms, application-code: 174ms)
+ GET /directory 200 in 963ms (next.js: 15ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 941ms)
+ GET / 200 in 959ms (next.js: 18ms, proxy.ts: 10ms, generate-params: 8ms, application-code: 932ms)
+ GET / 200 in 633ms (next.js: 12ms, proxy.ts: 6ms, generate-params: 6ms, application-code: 614ms)

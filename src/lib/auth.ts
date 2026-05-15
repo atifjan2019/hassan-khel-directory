@@ -22,20 +22,22 @@ export async function getSession(): Promise<SessionInfo> {
   return { user, isAdmin: Boolean(isAdmin) };
 }
 
-/** Guard an admin route. Redirects unauthorized users. `locale`-aware. */
-export async function requireAdmin(locale: string): Promise<SessionInfo> {
+/** Guard an admin route. Redirects unauthorized users. */
+export async function requireAdmin(
+  _locale?: string,
+): Promise<SessionInfo> {
   const session = await getSession();
-  if (!session.user) redirect(`/${locale}/login?next=/admin`);
-  if (!session.isAdmin) redirect(`/${locale}/?denied=1`);
+  if (!session.user) redirect(`/login?next=/admin`);
+  if (!session.isAdmin) redirect(`/?denied=1`);
   return session;
 }
 
 /** Guard a logged-in-only route. */
 export async function requireUser(
-  locale: string,
+  _locale?: string,
   next = "/profile",
 ): Promise<SessionInfo> {
   const session = await getSession();
-  if (!session.user) redirect(`/${locale}/login?next=${next}`);
+  if (!session.user) redirect(`/login?next=${next}`);
   return session;
 }

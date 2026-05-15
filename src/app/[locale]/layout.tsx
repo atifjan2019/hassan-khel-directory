@@ -44,7 +44,7 @@ export async function generateMetadata({
     },
     robots: { index: true, follow: true },
     alternates: {
-      languages: { en: "/en" },
+      canonical: "/",
     },
   };
 }
