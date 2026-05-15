@@ -169,7 +169,7 @@ export function AlbumManager({ albums, selected, locale }: Props) {
 
         <div>
           <h1 className="text-3xl">
-            {localized(locale, album.title_en, album.title_ur)}
+            {localized(locale, album.title_en)}
           </h1>
           <p className="mt-1 text-muted-foreground">
             {formatDate(album.event_date, locale)}
@@ -194,24 +194,9 @@ export function AlbumManager({ albums, selected, locale }: Props) {
                   className="file:me-3 file:rounded file:border-0 file:bg-primary/10 file:px-3 file:py-1 file:text-sm file:text-primary"
                 />
               </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="caption_en">
-                    {t("caption")} (EN)
-                  </Label>
-                  <Input id="caption_en" name="caption_en" dir="ltr" />
-                </div>
-                <div>
-                  <Label htmlFor="caption_ur">
-                    {t("caption")} (اردو)
-                  </Label>
-                  <Input
-                    id="caption_ur"
-                    name="caption_ur"
-                    dir="rtl"
-                    className="font-nastaliq"
-                  />
-                </div>
+              <div>
+                <Label htmlFor="caption_en">{t("caption")}</Label>
+                <Input id="caption_en" name="caption_en" dir="ltr" />
               </div>
               <Button type="submit" disabled={pending}>
                 {pending ? (
@@ -226,11 +211,7 @@ export function AlbumManager({ albums, selected, locale }: Props) {
         </Card>
 
         {photos.length === 0 ? (
-          <p className="text-sm text-muted-foreground">
-            {locale === "ur"
-              ? "ابھی کوئی تصویر نہیں۔"
-              : "No photos yet."}
-          </p>
+          <p className="text-sm text-muted-foreground">No photos yet.</p>
         ) : (
           <ul className="grid gap-3 sm:grid-cols-2">
             {photos.map((ph) => (
@@ -251,15 +232,8 @@ export function AlbumManager({ albums, selected, locale }: Props) {
                       <Input
                         name="caption_en"
                         defaultValue={ph.caption_en ?? ""}
-                        placeholder={`${t("caption")} (EN)`}
+                        placeholder={t("caption")}
                         dir="ltr"
-                      />
-                      <Input
-                        name="caption_ur"
-                        defaultValue={ph.caption_ur ?? ""}
-                        placeholder={`${t("caption")} (اردو)`}
-                        dir="rtl"
-                        className="font-nastaliq"
                       />
                       <div className="flex items-center gap-2">
                         <Label

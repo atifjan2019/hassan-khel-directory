@@ -283,12 +283,10 @@ export async function createAlbum(fd: FormData): Promise<ActionResult> {
     const supabase = await createClient();
     const { error } = await supabase.from("albums").insert({
       title_en: str(fd, "title_en") ?? "",
-      title_ur: str(fd, "title_ur"),
       event_date:
         str(fd, "event_date") ??
         new Date().toISOString().slice(0, 10),
       description_en: str(fd, "description_en"),
-      description_ur: str(fd, "description_ur"),
       cover_image_url: cover,
     });
     if (error) return { ok: false, error: error.message };
@@ -315,12 +313,10 @@ export async function updateAlbum(
     );
     const update: Partial<AlbumRow> = {
       title_en: str(fd, "title_en") ?? "",
-      title_ur: str(fd, "title_ur"),
       event_date:
         str(fd, "event_date") ??
         new Date().toISOString().slice(0, 10),
       description_en: str(fd, "description_en"),
-      description_ur: str(fd, "description_ur"),
     };
     if (cover) update.cover_image_url = cover;
 
@@ -372,7 +368,6 @@ export async function addAlbumPhoto(
     let order = (maxRow?.display_order ?? 0) + 1;
 
     const captionEn = str(fd, "caption_en");
-    const captionUr = str(fd, "caption_ur");
 
     for (const file of files) {
       if (file.size === 0) continue;
@@ -382,7 +377,6 @@ export async function addAlbumPhoto(
         album_id: albumId,
         image_url: path,
         caption_en: captionEn,
-        caption_ur: captionUr,
         display_order: order,
       });
       if (error) return { ok: false, error: error.message };
@@ -409,7 +403,6 @@ export async function updateAlbumPhoto(
     .from("album_photos")
     .update({
       caption_en: str(fd, "caption_en"),
-      caption_ur: str(fd, "caption_ur"),
       display_order: num(fd, "display_order") ?? 0,
     })
     .eq("id", photoId);

@@ -125,29 +125,17 @@ export function NewsEditor({
               className="space-y-4"
               key={editing?.id ?? "new"}
             >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="title_en" required>
-                    {t("titleEn")}
-                  </Label>
-                  <Input
-                    id="title_en"
-                    name="title_en"
-                    required
-                    defaultValue={editing?.title_en ?? ""}
-                    dir="ltr"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="title_ur">{t("titleUr")}</Label>
-                  <Input
-                    id="title_ur"
-                    name="title_ur"
-                    defaultValue={editing?.title_ur ?? ""}
-                    dir="rtl"
-                    className="font-nastaliq"
-                  />
-                </div>
+              <div>
+                <Label htmlFor="title_en" required>
+                  {t("titleEn")}
+                </Label>
+                <Input
+                  id="title_en"
+                  name="title_en"
+                  required
+                  defaultValue={editing?.title_en ?? ""}
+                  dir="ltr"
+                />
               </div>
 
               <div>
@@ -161,17 +149,6 @@ export function NewsEditor({
                   rows={5}
                   defaultValue={editing?.body_en ?? ""}
                   dir="ltr"
-                />
-              </div>
-              <div>
-                <Label htmlFor="body_ur">{t("bodyUr")}</Label>
-                <Textarea
-                  id="body_ur"
-                  name="body_ur"
-                  rows={5}
-                  defaultValue={editing?.body_ur ?? ""}
-                  dir="rtl"
-                  className="font-nastaliq"
                 />
               </div>
 
@@ -254,7 +231,7 @@ export function NewsEditor({
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="font-medium">
-                      {localized(locale, p.title_en, p.title_ur)}
+                      {localized(locale, p.title_en)}
                     </span>
                     <Badge variant="outline">{tCat(p.category)}</Badge>
                     {p.is_pinned && (
