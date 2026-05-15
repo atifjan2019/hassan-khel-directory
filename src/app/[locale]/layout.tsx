@@ -64,7 +64,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={dir(locale)}
-      className={`${fontDisplay.variable} ${fontSans.variable} ${fontNastaliq.variable}`}
+      className={`${fontDisplay.variable} ${fontSans.variable}`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
