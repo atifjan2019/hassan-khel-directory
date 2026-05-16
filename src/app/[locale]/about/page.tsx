@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { VILLAGE } from "@/lib/constants";
+import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -14,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "about" });
-  return { title: t("title") };
+  return pageMetadata({
+    title: t("title"),
+    description:
+      "About the Hassan Khel village community directory — the village's history, the purpose of this public record, and how member privacy is handled.",
+    path: "/about",
+  });
 }
 
 export default async function AboutPage({

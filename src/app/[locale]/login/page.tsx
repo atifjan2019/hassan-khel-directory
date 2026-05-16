@@ -4,8 +4,14 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Card } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
 import { LoginForm } from "@/features/auth/login-form";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Log in" };
+// Auth surface — keep out of search results.
+export const metadata: Metadata = pageMetadata({
+  title: "Log in",
+  path: "/login",
+  noindex: true,
+});
 
 export default async function LoginPage({
   params,

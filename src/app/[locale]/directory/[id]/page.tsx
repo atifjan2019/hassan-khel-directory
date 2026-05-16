@@ -24,7 +24,9 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { EmptyState } from "@/components/ui/empty-state";
 import { getProfileById, getChildren } from "@/lib/queries";
-import { displayName, localized, formatDate } from "@/lib/utils";
+import { displayName, localized, formatDate, storageUrl } from "@/lib/utils";
+import { JsonLd } from "@/components/shared/json-ld";
+import { pageMetadata, personJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -34,8 +36,32 @@ export async function generateMetadata({
   const { locale, id } = await params;
   const t = await getTranslations({ locale, namespace: "profile" });
   const profile = id ? await getProfileById(id) : null;
-  if (!profile) return { title: t("notFound") };
-  return { title: displayName(locale, profile) };
+  if (!profile)
+    return pageMetadata({
+      title: t("notFound"),
+      path: "/directory",
+      noindex: true,
+    });
+
+  const name = displayName(locale, profile);
+  const tProf = await getTranslations({
+    locale,
+    namespace: "options.profession",
+  });
+  const profession = tProf(profile.profession as never);
+  // Never expose a photo the member chose to hide.
+  const photo =
+    !profile.hide_photo && profile.photo_url
+      ? (storageUrl(profile.photo_url) ?? undefined)
+      : undefined;
+
+  return pageMetadata({
+    title: name,
+    description: `${name} — ${profession} from Hassan Khel village. View profile, lineage and family connections in the community directory.`,
+    path: `/directory/${profile.id}`,
+    type: "profile",
+    image: photo,
+  });
 }
 
 export default async function ProfileDetailPage({

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { RegisterWizard } from "@/features/register/register-wizard";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -10,7 +11,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return { title: t("registerTitle") };
+  return pageMetadata({
+    title: t("registerTitle"),
+    description:
+      "Add a member of Hassan Khel village to the public community directory.",
+    path: "/register",
+  });
 }
 
 export default async function RegisterPage({

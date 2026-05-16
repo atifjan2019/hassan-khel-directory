@@ -10,6 +10,7 @@ import { StatCard } from "@/features/home/stat-card";
 import { NewsTeaser } from "@/features/home/news-teaser";
 import { ProfessionBars } from "@/features/home/profession-bars";
 import { getStats, getRecentMembers, getNews } from "@/lib/queries";
+import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -20,10 +21,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return {
-    title: t("homeTitle"),
+  // Title omitted: the layout's `title.default` already is the site name,
+  // so setting it here would double it via the title template.
+  return pageMetadata({
     description: t("homeDescription"),
-  };
+    path: "/",
+  });
 }
 
 export default async function HomePage({

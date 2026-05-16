@@ -12,6 +12,8 @@ import { getNews, getNewsPost } from "@/lib/queries";
 import { localized, formatDate, storageUrl } from "@/lib/utils";
 import { formatHijri } from "@/lib/hijri";
 import { bodyToPlainTextWithBreaks, excerpt } from "@/features/news/news-utils";
+import { JsonLd } from "@/components/shared/json-ld";
+import { pageMetadata, newsArticleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -23,12 +25,22 @@ export async function generateMetadata({
   const { locale, id } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   const post = id ? await getNewsPost(id) : null;
-  if (!post) return { title: t("newsTitle") };
+  if (!post)
+    return pageMetadata({
+      title: t("newsTitle"),
+      path: "/news",
+      noindex: true,
+    });
   const title = localized(locale, post.title_en);
-  return {
+  return pageMetadata({
     title,
     description: excerpt(localized(locale, post.body_en), 155),
-  };
+    path: `/news/${post.id}`,
+    type: "article",
+    image: storageUrl(post.cover_image_url) ?? undefined,
+    publishedTime: post.published_at,
+    modifiedTime: post.updated_at,
+  });
 }
 
 export default async function NewsPostPage({
@@ -74,8 +86,24 @@ export default async function NewsPostPage({
   const recent = await getNews({ limit: 5 });
   const related = recent.filter((p) => p.id !== post.id).slice(0, 4);
 
+  const jsonLd = [
+    newsArticleJsonLd({
+      title,
+      description: excerpt(localized(locale, post.body_en), 200),
+      path: `/news/${post.id}`,
+      image: cover,
+      publishedAt: post.published_at,
+    }),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: t("backToNews"), path: "/news" },
+      { name: title, path: `/news/${post.id}` },
+    ]),
+  ];
+
   return (
     <div className="container-page">
+      <JsonLd data={jsonLd} />
       <div className="mb-6">
         <Button variant="ghost" size="sm" asChild>
           <Link href="/news">
