@@ -9,6 +9,8 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ChromeGate } from "@/components/layout/chrome-gate";
 import { TopProgressBar } from "@/components/layout/top-progress-bar";
+import { JsonLd } from "@/components/shared/json-ld";
+import { SITE_URL, SITE_NAME, siteJsonLd } from "@/lib/seo";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -29,10 +31,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(SITE_URL),
+    applicationName: SITE_NAME,
     title: {
       default: t("homeTitle"),
       template: `%s · ${t("homeTitle")}`,
@@ -43,11 +45,27 @@ export async function generateMetadata({
       description: t("homeDescription"),
       type: "website",
       locale: "en_US",
+      siteName: SITE_NAME,
+      url: SITE_URL,
     },
-    robots: { index: true, follow: true },
-    alternates: {
-      canonical: "/",
+    twitter: {
+      card: "summary_large_image",
+      title: t("homeTitle"),
+      description: t("homeDescription"),
     },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    // NOTE: no blanket `alternates.canonical` here — Next inherits it to
+    // every route, which would canonicalise all pages to "/". Each page
+    // sets its own canonical via `pageMetadata` in @/lib/seo.
   };
 }
 
@@ -70,6 +88,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
+        <JsonLd data={siteJsonLd()} />
         <NextIntlClientProvider>
           <TopProgressBar />
           <a

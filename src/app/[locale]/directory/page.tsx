@@ -9,6 +9,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { DirectoryFilters } from "@/features/directory/directory-filters";
 import { getDirectory, getDirectoryFacets } from "@/lib/queries";
 import { COMMON_CITIES } from "@/lib/constants";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -17,7 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return { title: t("directoryTitle") };
+  return pageMetadata({
+    title: t("directoryTitle"),
+    description:
+      "Browse the people of Hassan Khel village — search residents by name, profession, qualification, city and family in this public community directory.",
+    path: "/directory",
+  });
 }
 
 function firstParam(value: string | undefined): string | undefined {

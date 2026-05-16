@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { EmptyState } from "@/components/ui/empty-state";
 import { getAlbums } from "@/lib/queries";
 import { localized, formatDate, storageUrl } from "@/lib/utils";
+import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -17,7 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return { title: t("galleryTitle") };
+  return pageMetadata({
+    title: t("galleryTitle"),
+    description:
+      "Photo albums from events, gatherings and occasions in Hassan Khel village.",
+    path: "/gallery",
+  });
 }
 
 export default async function GalleryPage({

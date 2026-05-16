@@ -9,6 +9,7 @@ import { NewsCard } from "@/features/news/news-card";
 import { getNews } from "@/lib/queries";
 import { NEWS_CATEGORIES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { pageMetadata } from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -19,7 +20,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return { title: t("newsTitle") };
+  return pageMetadata({
+    title: t("newsTitle"),
+    description:
+      "Latest announcements from Hassan Khel village — deaths, weddings, jirga decisions, meetings, fundraisers, school and government scheme updates.",
+    path: "/news",
+  });
 }
 
 export default async function NewsPage({

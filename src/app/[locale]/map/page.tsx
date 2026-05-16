@@ -4,6 +4,7 @@ import { MapPinOff } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { VillageMapLazy } from "@/features/map/village-map-lazy";
 import { getMappedProfiles } from "@/lib/queries";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,7 +13,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return { title: t("mapTitle") };
+  return pageMetadata({
+    title: t("mapTitle"),
+    description:
+      "Interactive map of Hassan Khel village showing the locations of registered households across the community.",
+    path: "/map",
+  });
 }
 
 export default async function MapPage({

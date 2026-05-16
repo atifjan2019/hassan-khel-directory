@@ -6,6 +6,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { getFamilyTreeNodes } from "@/lib/queries";
 import { FamilyTreeLazy } from "@/features/family-tree/family-tree-lazy";
 import type { FamilyTreeRow } from "@/features/family-tree/layout";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -14,7 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  return { title: t("familyTreeTitle") };
+  return pageMetadata({
+    title: t("familyTreeTitle"),
+    description:
+      "Explore the family lineage and ancestral connections of Hassan Khel village residents in an interactive tree.",
+    path: "/family-tree",
+  });
 }
 
 export default async function FamilyTreePage({
