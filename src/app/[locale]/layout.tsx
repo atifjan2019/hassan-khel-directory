@@ -10,6 +10,7 @@ import { Footer } from "@/components/layout/footer";
 import { ChromeGate } from "@/components/layout/chrome-gate";
 import { TopProgressBar } from "@/components/layout/top-progress-bar";
 import { JsonLd } from "@/components/shared/json-ld";
+import { ImpersonationBanner } from "@/components/layout/impersonation-banner";
 import { SITE_URL, SITE_NAME, siteJsonLd } from "@/lib/seo";
 import "../globals.css";
 
@@ -89,6 +90,7 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <JsonLd data={siteJsonLd()} />
+        <ImpersonationBanner />
         <NextIntlClientProvider>
           <TopProgressBar />
           <a

@@ -22,6 +22,6 @@ export const config = {
   // explicit exclusion next-intl would locale-rewrite them and break
   // crawler discovery + social previews.
   matcher: [
-    "/((?!api|_next|_vercel|auth/callback|robots\\.txt|sitemap\\.xml|manifest\\.webmanifest|icon|apple-icon|opengraph-image|twitter-image|.*\\.[^/]+$).*)",
+    "/((?!api|_next|_vercel|auth/callback|auth/confirm|robots\\.txt|sitemap\\.xml|manifest\\.webmanifest|icon|apple-icon|opengraph-image|twitter-image|.*\\.[^/]+$).*)",
   ],
 };

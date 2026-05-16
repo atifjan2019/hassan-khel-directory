@@ -423,6 +423,132 @@ export function MembersTable({
           </Button>
         </div>
       </Dialog>
+
+      {/* Change Password Dialog */}
+      <Dialog
+        open={changePassTarget !== null}
+        onClose={() => {
+          setChangePassTarget(null);
+          setNewPassword("");
+          setPassError(null);
+          setPassSuccess(false);
+        }}
+        labelledBy="chpass-title"
+      >
+        <h2
+          id="chpass-title"
+          className="font-display text-xl text-forest-700"
+        >
+          Change Password
+        </h2>
+        {changePassTarget && (
+          <p className="mt-1 text-sm text-muted-foreground">
+            for <strong>{changePassTarget.name}</strong>
+          </p>
+        )}
+        {passError && (
+          <p
+            role="alert"
+            className="mt-3 rounded-md bg-destructive/10 px-3 py-2 text-sm text-destructive"
+          >
+            {passError}
+          </p>
+        )}
+        {passSuccess && (
+          <p
+            role="status"
+            className="mt-3 rounded-md bg-green-50 px-3 py-2 text-sm text-green-700"
+          >
+            Password updated successfully.
+          </p>
+        )}
+        <div className="mt-4 space-y-3">
+          <input
+            type="password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            placeholder="New password (min 8 characters)"
+            className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-forest-500"
+            autoComplete="new-password"
+          />
+        </div>
+        <div className="mt-5 flex justify-end gap-2">
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => {
+              setChangePassTarget(null);
+              setNewPassword("");
+              setPassError(null);
+              setPassSuccess(false);
+            }}
+          >
+            {tCommon("cancel")}
+          </Button>
+          <Button
+            type="button"
+            variant="default"
+            onClick={onChangePassword}
+            disabled={newPassword.length < 8}
+          >
+            <KeyRound className="size-4" />
+            Set Password
+          </Button>
+        </div>
+      </Dialog>
+
+      {/* Login As User (Impersonation) Dialog */}
+      <Dialog
+        open={impersonateTarget !== null}
+        onClose={() => {
+          setImpersonateTarget(null);
+          setImpersonateError(null);
+        }}
+        labelledBy="imp-title"
+      >
+        <h2 id="imp-title" className="font-display text-xl text-forest-700">
+          Login as User
+        </h2>
+        {impersonateTarget && (
+          <p className="mt-3 text-sm text-muted-foreground">
+            A one-time link will open in a new tab and sign you in as{" "}
+            <strong>{impersonateTarget.name}</strong>. A banner will appear at
+            the top of the site while impersonating; click{" "}
+            <strong>Exit impersonation</strong> there to return to your own
+            admin account. Note: all tabs in this browser share the session.
+          </p>
+        )}
+        {impersonateError && (
+          <p
+            role="alert"
+            className="mt-3 rounded-md bg-destructive/10 px-3 py-2 text-sm text-destructive"
+          >
+            {impersonateError}
+          </p>
+        )}
+        <div className="mt-5 flex justify-end gap-2">
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => {
+              setImpersonateTarget(null);
+              setImpersonateError(null);
+            }}
+          >
+            {tCommon("cancel")}
+          </Button>
+          <Button
+            type="button"
+            variant="default"
+            onClick={onImpersonate}
+            disabled={impersonateBusy}
+            className="bg-sky-600 hover:bg-sky-700 text-white"
+          >
+            {impersonateBusy ? <Spinner /> : <LogIn className="size-4" />}
+            Login as User
+          </Button>
+        </div>
+      </Dialog>
     </div>
   );
 }

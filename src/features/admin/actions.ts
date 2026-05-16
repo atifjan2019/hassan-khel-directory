@@ -2,10 +2,17 @@
 
 import { randomUUID } from "node:crypto";
 import { revalidatePath } from "next/cache";
+import { cookies } from "next/headers";
 import { getSession } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { STORAGE_BUCKET } from "@/lib/constants";
+import {
+  IMP_BACKUP_PREFIX,
+  IMP_MARKER_COOKIE,
+  IMP_MAX_AGE,
+  SUPABASE_AUTH_COOKIE,
+} from "./impersonation";
 import type {
   ProfileStatus,
   ProfileRow,
@@ -160,14 +167,102 @@ export async function getImpersonationLink(
   if (userError || !authUser.user?.email) {
     return { ok: false, error: userError?.message ?? "User has no email" };
   }
+
+  // Snapshot the admin's own Supabase auth cookies BEFORE the impersonated
+  // session overwrites them, so stopImpersonation() can restore the admin.
+  // Each cookie is copied individually (see impersonation.ts). Only snapshot
+  // once — chained impersonation keeps the original admin.
+  const cookieStore = await cookies();
+  const secure = process.env.NODE_ENV === "production";
+  if (!cookieStore.get(IMP_MARKER_COOKIE)) {
+    const adminCookies = cookieStore
+      .getAll()
+      .filter((c) => SUPABASE_AUTH_COOKIE.test(c.name));
+    if (adminCookies.length === 0) {
+      return { ok: false, error: "Could not capture admin session" };
+    }
+    for (const c of adminCookies) {
+      cookieStore.set(`${IMP_BACKUP_PREFIX}${c.name}`, c.value, {
+        httpOnly: true,
+        secure,
+        sameSite: "lax",
+        path: "/",
+        maxAge: IMP_MAX_AGE,
+      });
+    }
+    cookieStore.set(IMP_MARKER_COOKIE, "1", {
+      httpOnly: true,
+      secure,
+      sameSite: "lax",
+      path: "/",
+      maxAge: IMP_MAX_AGE,
+    });
+  }
+
   const { data, error } = await admin.auth.admin.generateLink({
     type: "magiclink",
     email: authUser.user.email,
   });
   if (error || !data.properties) {
+    // Roll back the snapshot — impersonation never started.
+    for (const c of cookieStore.getAll()) {
+      if (c.name.startsWith(IMP_BACKUP_PREFIX)) cookieStore.delete(c.name);
+    }
+    cookieStore.delete(IMP_MARKER_COOKIE);
     return { ok: false, error: error?.message ?? "Failed to generate link" };
   }
-  return { ok: true, url: data.properties.action_link };
+
+  // Do NOT return `data.properties.action_link`: that points at Supabase's
+  // hosted /auth/v1/verify endpoint, which uses the implicit flow and won't
+  // establish an SSR (cookie) session. Build a link to our own /auth/confirm
+  // route, which calls verifyOtp(token_hash). A relative URL is intentional —
+  // window.open resolves it against the admin's current origin.
+  const params = new URLSearchParams({
+    token_hash: data.properties.hashed_token,
+    type: "magiclink",
+    next: "/profile",
+  });
+  return { ok: true, url: `/auth/confirm?${params.toString()}` };
+}
+
+/**
+ * End an impersonation session: restore the admin's snapshotted Supabase auth
+ * cookies and drop the backup. Authority is possession of the httpOnly backup
+ * cookie (only the browser that started impersonation holds it), so this does
+ * NOT call assertAdmin — the live session here is the impersonated user.
+ */
+export async function stopImpersonation(): Promise<ActionResult> {
+  const cookieStore = await cookies();
+  if (!cookieStore.get(IMP_MARKER_COOKIE)) {
+    return { ok: false, error: "not_impersonating" };
+  }
+
+  const backups = cookieStore
+    .getAll()
+    .filter((c) => c.name.startsWith(IMP_BACKUP_PREFIX));
+  if (backups.length === 0) {
+    cookieStore.delete(IMP_MARKER_COOKIE);
+    return { ok: false, error: "session_backup_missing" };
+  }
+
+  // Clear the impersonated user's auth cookies (chunk count may differ),
+  // then restore the admin's. Not httpOnly: the browser Supabase client
+  // must be able to read these. The next request through the proxy
+  // re-validates and rewrites them with the library's exact attributes.
+  for (const c of cookieStore.getAll()) {
+    if (SUPABASE_AUTH_COOKIE.test(c.name)) cookieStore.delete(c.name);
+  }
+  const secure = process.env.NODE_ENV === "production";
+  for (const b of backups) {
+    cookieStore.set(b.name.slice(IMP_BACKUP_PREFIX.length), b.value, {
+      secure,
+      sameSite: "lax",
+      path: "/",
+    });
+    cookieStore.delete(b.name);
+  }
+  cookieStore.delete(IMP_MARKER_COOKIE);
+  return { ok: true };
 }
 
 /** Full profile edit (any field) — service-role to bypass RLS. */
