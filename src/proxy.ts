@@ -16,6 +16,12 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Skip Next internals, static assets and the OAuth callback.
-  matcher: ["/((?!api|_next|_vercel|auth/callback|.*\\.[^/]+$).*)"],
+  // Skip Next internals, static assets, the OAuth callback, and the
+  // metadata file/image routes (robots, sitemap, manifest, icons, OG/
+  // Twitter images). The latter have no file extension, so without an
+  // explicit exclusion next-intl would locale-rewrite them and break
+  // crawler discovery + social previews.
+  matcher: [
+    "/((?!api|_next|_vercel|auth/callback|robots\\.txt|sitemap\\.xml|manifest\\.webmanifest|icon|apple-icon|opengraph-image|twitter-image|.*\\.[^/]+$).*)",
+  ],
 };
