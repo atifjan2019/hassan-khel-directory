@@ -30,16 +30,24 @@ export function LoginForm({ locale: _locale }: { locale?: string }) {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    setLoading(false);
     if (error) {
+      setLoading(false);
       setError(t("invalidCredentials"));
       return;
     }
-    window.location.assign(next);
+    // Honor an explicit deep link; otherwise send admins to /admin.
+    let dest = next;
+    if (next === "/profile" && data.user) {
+      const { data: isAdmin } = await supabase.rpc("is_admin", {
+        uid: data.user.id,
+      });
+      if (isAdmin) dest = "/admin";
+    }
+    window.location.assign(dest);
   }
 
   async function onGoogle() {

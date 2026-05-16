@@ -40,13 +40,15 @@ export async function Header({ locale }: { locale: string }) {
               </Button>
             </>
           ) : (
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/login">{t("login")}</Link>
-            </Button>
+            <>
+              <Button asChild variant="ghost" size="sm">
+                <Link href="/login">{t("login")}</Link>
+              </Button>
+              <Button asChild variant="secondary" size="sm">
+                <Link href="/register">{t("register")}</Link>
+              </Button>
+            </>
           )}
-          <Button asChild variant="secondary" size="sm">
-            <Link href="/register">{t("register")}</Link>
-          </Button>
         </div>
 
         <MobileNav isLoggedIn={Boolean(user)} isAdmin={isAdmin} />

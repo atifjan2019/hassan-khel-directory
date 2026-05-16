@@ -73,13 +73,6 @@ export function MobileNav({
             </ul>
 
             <div className="mt-auto flex flex-col gap-2 border-t border-border pt-4">
-              <Link
-                href="/register"
-                onClick={() => setOpen(false)}
-                className="rounded-md bg-secondary px-3 py-3 text-center font-medium text-secondary-foreground"
-              >
-                {t("register")}
-              </Link>
               {isLoggedIn ? (
                 <>
                   <Link

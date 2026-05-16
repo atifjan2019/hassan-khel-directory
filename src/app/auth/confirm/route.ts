@@ -1,6 +1,7 @@
 import { type EmailOtpType } from "@supabase/supabase-js";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { postLoginPath } from "@/lib/auth";
 
 /**
  * Token-hash confirmation endpoint for links minted server-side via
@@ -24,7 +25,8 @@ export async function GET(request: Request) {
       token_hash: tokenHash,
     });
     if (!error) {
-      return NextResponse.redirect(new URL(next, url.origin));
+      const dest = await postLoginPath(supabase, next);
+      return NextResponse.redirect(new URL(dest, url.origin));
     }
   }
 

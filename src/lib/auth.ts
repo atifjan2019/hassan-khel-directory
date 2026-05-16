@@ -2,7 +2,8 @@ import "server-only";
 
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import type { User } from "@supabase/supabase-js";
+import type { SupabaseClient, User } from "@supabase/supabase-js";
+import type { Database } from "@/lib/database.types";
 
 export interface SessionInfo {
   user: User | null;
@@ -20,6 +21,27 @@ export async function getSession(): Promise<SessionInfo> {
 
   const { data: isAdmin } = await supabase.rpc("is_admin", { uid: user.id });
   return { user, isAdmin: Boolean(isAdmin) };
+}
+
+/**
+ * Resolve where to send a user immediately after authenticating.
+ *
+ * An explicit deep-link `next` (anything other than the default `/profile`)
+ * is always honored. Otherwise admins land on `/admin`, members on `/profile`.
+ * Pass the same Supabase client that just established the session so the
+ * freshly-set cookies are visible.
+ */
+export async function postLoginPath(
+  supabase: SupabaseClient<Database>,
+  next?: string | null,
+): Promise<string> {
+  if (next && next !== "/profile") return next;
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return "/profile";
+  const { data: isAdmin } = await supabase.rpc("is_admin", { uid: user.id });
+  return isAdmin ? "/admin" : "/profile";
 }
 
 /** Guard an admin route. Redirects unauthorized users. */
