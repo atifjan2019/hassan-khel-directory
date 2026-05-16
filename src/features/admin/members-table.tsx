@@ -3,7 +3,7 @@
 import { useState, useMemo, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Search, Pencil, Trash2, Power } from "lucide-react";
+import { Search, Pencil, Trash2, Power, KeyRound, LogIn } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Avatar } from "@/components/shared/avatar";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ import { Dialog } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
 import { displayName } from "@/lib/utils";
 import type { ProfileRow, ProfileStatus } from "@/lib/database.types";
-import { setProfileStatus, deleteProfile } from "./actions";
+import { setProfileStatus, deleteProfile, changeUserPassword, getImpersonationLink } from "./actions";
 
 const STATUS_VARIANT: Record<
   ProfileStatus,
@@ -44,6 +44,23 @@ export function MembersTable({
   const [busyId, setBusyId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [, startTransition] = useTransition();
+
+  // Change password dialog
+  const [changePassTarget, setChangePassTarget] = useState<{
+    userId: string;
+    name: string;
+  } | null>(null);
+  const [newPassword, setNewPassword] = useState("");
+  const [passError, setPassError] = useState<string | null>(null);
+  const [passSuccess, setPassSuccess] = useState(false);
+
+  // Impersonation dialog
+  const [impersonateTarget, setImpersonateTarget] = useState<{
+    userId: string;
+    name: string;
+  } | null>(null);
+  const [impersonateBusy, setImpersonateBusy] = useState(false);
+  const [impersonateError, setImpersonateError] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -91,6 +108,37 @@ export function MembersTable({
       }
       setDeleteId(null);
       router.refresh();
+    });
+  }
+
+  function onChangePassword() {
+    if (!changePassTarget) return;
+    setPassError(null);
+    setPassSuccess(false);
+    startTransition(async () => {
+      const res = await changeUserPassword(changePassTarget.userId, newPassword);
+      if (!res.ok) {
+        setPassError(res.error ?? "Failed to change password");
+        return;
+      }
+      setPassSuccess(true);
+      setNewPassword("");
+    });
+  }
+
+  function onImpersonate() {
+    if (!impersonateTarget) return;
+    setImpersonateError(null);
+    setImpersonateBusy(true);
+    startTransition(async () => {
+      const res = await getImpersonationLink(impersonateTarget.userId);
+      setImpersonateBusy(false);
+      if (!res.ok || !res.url) {
+        setImpersonateError(res.error ?? "Failed to generate login link");
+        return;
+      }
+      setImpersonateTarget(null);
+      window.open(res.url, "_blank", "noopener,noreferrer");
     });
   }
 
@@ -205,6 +253,42 @@ export function MembersTable({
                       <Trash2 className="size-4" />
                       <span className="sr-only">{t("delete")}</span>
                     </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() =>
+                        p.user_id
+                          ? setChangePassTarget({
+                              userId: p.user_id,
+                              name: displayName(locale, p),
+                            })
+                          : null
+                      }
+                      disabled={!p.user_id}
+                      title="Change password"
+                      className="text-amber-600 hover:bg-amber-50"
+                    >
+                      <KeyRound className="size-4" />
+                      <span className="sr-only">Change password</span>
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() =>
+                        p.user_id
+                          ? setImpersonateTarget({
+                              userId: p.user_id,
+                              name: displayName(locale, p),
+                            })
+                          : null
+                      }
+                      disabled={!p.user_id}
+                      title="Login as this user"
+                      className="text-sky-600 hover:bg-sky-50"
+                    >
+                      <LogIn className="size-4" />
+                      <span className="sr-only">Login as user</span>
+                    </Button>
                   </div>
                 </td>
               </tr>
@@ -264,6 +348,40 @@ export function MembersTable({
                     >
                       <Trash2 className="size-4" />
                       {t("delete")}
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() =>
+                        p.user_id
+                          ? setChangePassTarget({
+                              userId: p.user_id,
+                              name: displayName(locale, p),
+                            })
+                          : null
+                      }
+                      disabled={!p.user_id}
+                      className="text-amber-600 hover:bg-amber-50"
+                    >
+                      <KeyRound className="size-4" />
+                      Change Password
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() =>
+                        p.user_id
+                          ? setImpersonateTarget({
+                              userId: p.user_id,
+                              name: displayName(locale, p),
+                            })
+                          : null
+                      }
+                      disabled={!p.user_id}
+                      className="text-sky-600 hover:bg-sky-50"
+                    >
+                      <LogIn className="size-4" />
+                      Login As
                     </Button>
                   </div>
                 </div>

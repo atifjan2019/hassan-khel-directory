@@ -135,6 +135,41 @@ export async function deleteProfile(id: string): Promise<ActionResult> {
   return { ok: true };
 }
 
+export async function changeUserPassword(
+  userId: string,
+  password: string,
+): Promise<ActionResult> {
+  const denied = await assertAdmin();
+  if (denied) return { ok: false, error: denied };
+  if (password.length < 8)
+    return { ok: false, error: "Password must be at least 8 characters" };
+  const admin = createAdminClient();
+  const { error } = await admin.auth.admin.updateUserById(userId, { password });
+  if (error) return { ok: false, error: error.message };
+  return { ok: true };
+}
+
+export async function getImpersonationLink(
+  userId: string,
+): Promise<{ ok: boolean; url?: string; error?: string }> {
+  const denied = await assertAdmin();
+  if (denied) return { ok: false, error: denied };
+  const admin = createAdminClient();
+  const { data: authUser, error: userError } =
+    await admin.auth.admin.getUserById(userId);
+  if (userError || !authUser.user?.email) {
+    return { ok: false, error: userError?.message ?? "User has no email" };
+  }
+  const { data, error } = await admin.auth.admin.generateLink({
+    type: "magiclink",
+    email: authUser.user.email,
+  });
+  if (error || !data.properties) {
+    return { ok: false, error: error?.message ?? "Failed to generate link" };
+  }
+  return { ok: true, url: data.properties.action_link };
+}
+
 /** Full profile edit (any field) — service-role to bypass RLS. */
 export async function updateProfile(
   id: string,
