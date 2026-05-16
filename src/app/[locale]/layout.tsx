@@ -7,6 +7,8 @@ import { dir } from "@/lib/utils";
 import { fontDisplay, fontSans } from "@/lib/fonts";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ChromeGate } from "@/components/layout/chrome-gate";
+import { TopProgressBar } from "@/components/layout/top-progress-bar";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -69,17 +71,22 @@ export default async function LocaleLayout({
     >
       <body className="flex min-h-dvh flex-col" suppressHydrationWarning>
         <NextIntlClientProvider>
+          <TopProgressBar />
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
           >
             Skip to content
           </a>
-          <Header locale={locale} />
+          <ChromeGate>
+            <Header locale={locale} />
+          </ChromeGate>
           <main id="main" className="flex-1">
             {children}
           </main>
-          <Footer locale={locale} />
+          <ChromeGate>
+            <Footer locale={locale} />
+          </ChromeGate>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -18,7 +18,7 @@ export function NavLink({
     <Link
       href={href}
       className={cn(
-        "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+        "rounded-md px-3 py-2 text-sm font-medium transition-[color,background-color,transform] duration-150 active:scale-[0.96] motion-reduce:active:scale-100",
         active
           ? "bg-primary/10 text-primary"
           : "text-foreground/80 hover:bg-primary/5 hover:text-primary",

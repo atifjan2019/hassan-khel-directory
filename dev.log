@@ -21,3 +21,5 @@
  GET /directory 200 in 963ms (next.js: 15ms, proxy.ts: 6ms, generate-params: 7ms, application-code: 941ms)
  GET / 200 in 959ms (next.js: 18ms, proxy.ts: 10ms, generate-params: 8ms, application-code: 932ms)
  GET / 200 in 633ms (next.js: 12ms, proxy.ts: 6ms, generate-params: 6ms, application-code: 614ms)
+ GET /map 200 in 1508ms (next.js: 809ms, proxy.ts: 8ms, generate-params: 759ms, application-code: 691ms)
+ GET /directory/4603e600-b23c-4626-bff8-63b0f828e5f5 200 in 2.6s (next.js: 779ms, proxy.ts: 6ms, application-code: 1827ms)
