@@ -11,6 +11,7 @@ import {
   BarChart3,
   Menu,
   X,
+  LogOut,
 } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -38,6 +39,7 @@ function isActive(pathname: string, href: string): boolean {
 export function AdminNav() {
   const t = useTranslations("admin.nav");
   const tAdmin = useTranslations("admin");
+  const tNav = useTranslations("nav");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -63,6 +65,16 @@ export function AdminNav() {
       );
     });
 
+  const logoutLink = (
+    <a
+      href="/api/auth/signout"
+      className="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
+    >
+      <LogOut className="size-4 shrink-0" />
+      {tNav("logout")}
+    </a>
+  );
+
   return (
     <>
       {/* Mobile topbar */}
@@ -87,16 +99,20 @@ export function AdminNav() {
           className="grid gap-1 border-b border-border bg-card p-3 lg:hidden"
         >
           {links(() => setOpen(false))}
+          <div className="mt-1 border-t border-border pt-1">{logoutLink}</div>
         </nav>
       )}
 
       {/* Desktop sidebar */}
       <aside className="hidden w-60 shrink-0 border-e border-border bg-card lg:block">
-        <div className="sticky top-0 p-4">
+        <div className="sticky top-0 flex h-dvh flex-col p-4">
           <p className="mb-4 px-3 font-display text-lg text-forest-700">
             {tAdmin("title")}
           </p>
           <nav className="grid gap-1">{links()}</nav>
+          <div className="mt-auto border-t border-border pt-4">
+            {logoutLink}
+          </div>
         </div>
       </aside>
     </>
