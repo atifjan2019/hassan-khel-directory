@@ -6,7 +6,13 @@ import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
 import { GalleryGrid } from "@/features/gallery/lightbox";
 import { getAlbum } from "@/lib/queries";
-import { localized, formatDate } from "@/lib/utils";
+import { localized, formatDate, storageUrl } from "@/lib/utils";
+import { JsonLd } from "@/components/shared/json-ld";
+import {
+  pageMetadata,
+  breadcrumbJsonLd,
+  absoluteUrl,
+} from "@/lib/seo";
 
 export const revalidate = 300;
 
@@ -18,12 +24,21 @@ export async function generateMetadata({
   const { locale, albumId } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   const result = albumId ? await getAlbum(albumId) : null;
-  if (!result) return { title: t("galleryTitle") };
+  if (!result)
+    return pageMetadata({
+      title: t("galleryTitle"),
+      path: "/gallery",
+      noindex: true,
+    });
   const title = localized(locale, result.album.title_en);
-  return {
+  return pageMetadata({
     title,
-    description: localized(locale, result.album.description_en),
-  };
+    description:
+      localized(locale, result.album.description_en) ||
+      `Photo album "${title}" from Hassan Khel village.`,
+    path: `/gallery/${result.album.id}`,
+    image: storageUrl(result.album.cover_image_url) ?? undefined,
+  });
 }
 
 export default async function AlbumPage({
@@ -62,8 +77,29 @@ export default async function AlbumPage({
   const title = localized(locale, album.title_en);
   const description = localized(locale, album.description_en);
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      name: title,
+      ...(description ? { description } : {}),
+      url: absoluteUrl(`/gallery/${album.id}`),
+      datePublished: album.event_date,
+      image: photos
+        .slice(0, 30)
+        .map((p) => storageUrl(p.image_url))
+        .filter((u): u is string => Boolean(u)),
+    },
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: t("backToGallery"), path: "/gallery" },
+      { name: title, path: `/gallery/${album.id}` },
+    ]),
+  ];
+
   return (
     <div className="container-page">
+      <JsonLd data={jsonLd} />
       <div className="mb-6">
         <Button variant="ghost" size="sm" asChild>
           <Link href="/gallery">

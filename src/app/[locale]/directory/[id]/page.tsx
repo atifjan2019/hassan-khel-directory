@@ -163,8 +163,27 @@ export default async function ProfileDetailPage({
     });
   }
 
+  const jsonLd = [
+    personJsonLd({
+      name,
+      path: `/directory/${profile.id}`,
+      jobTitle: tProf(profile.profession as never),
+      image:
+        !profile.hide_photo && profile.photo_url
+          ? storageUrl(profile.photo_url)
+          : null,
+      deceased: profile.is_deceased,
+    }),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Directory", path: "/directory" },
+      { name, path: `/directory/${profile.id}` },
+    ]),
+  ];
+
   return (
     <div className="container-page">
+      <JsonLd data={jsonLd} />
       <div className="mb-6">
         <Button variant="ghost" size="sm" asChild>
           <Link href="/directory">
