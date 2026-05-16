@@ -62,14 +62,18 @@ export function TopProgressBar() {
     return () => document.removeEventListener("click", onClick, true);
   }, []);
 
-  // The new route has rendered — complete the bar.
+  // The new route has rendered — complete the bar. Reacting to the router's
+  // pathname is exactly the external-system sync effects are intended for.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPhase((p) => (p === "loading" ? "done" : p));
   }, [pathname]);
 
-  // Drive the visual from the current phase.
+  // Drive the visual timeline (a non-React external concern: rAF + timers)
+  // from the current phase.
   useEffect(() => {
     if (phase === "loading") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setWidth(8);
       requestAnimationFrame(() =>
         requestAnimationFrame(() => setWidth(90)),
@@ -79,6 +83,7 @@ export function TopProgressBar() {
       return () => clearTimeout(safety);
     }
     if (phase === "done") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setWidth(100);
       const reset = setTimeout(() => {
         setPhase("idle");
